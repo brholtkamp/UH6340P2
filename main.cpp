@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-#include "tree.hpp"
+#include "Tree/tree.hpp"
 
 int main() {
     tree<std::string, std::string> tree;

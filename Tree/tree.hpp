@@ -7,9 +7,9 @@
 
 #include <memory>
 
-#include "node.hpp"
-#include "internalNode.hpp"
-#include "leafNode.hpp"
+#include "Node/node.hpp"
+#include "Node/internalNode.hpp"
+#include "Node/leafNode.hpp"
 
 template<typename K, typename V>
 class tree {
