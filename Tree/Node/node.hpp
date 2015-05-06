@@ -1,8 +1,6 @@
 #ifndef PROJECT_2_NODE_HPP
 #define PROJECT_2_NODE_HPP
 
-#define DEBUG 0
-
 #include <array>
 #include <memory>
 
@@ -30,6 +28,7 @@ public:
     node() : numberOfKeys(0) { }
 
     virtual std::shared_ptr<node<K, V>> findNode(const K key) = 0;
+    virtual unsigned int findIndex(const K key) = 0;
     virtual nodeType getType() = 0;
 
     virtual std::unique_ptr<split<K, V>> insert(const K key, const V value) = 0;
@@ -40,28 +39,9 @@ public:
 
     virtual ~node() { }
 
-    unsigned int findIndex(const K key);
 
     unsigned int numberOfKeys;
     std::array<K, DEFAULT_DEGREE> keys;
 };
-
-template <typename K, typename V>
-unsigned int node<K, V>::findIndex(const K key) {
-    // Check for the empty node
-    if (numberOfKeys == 0) {
-        return 0;
-    }
-
-    // Attempt to find the next biggest key
-    for (unsigned int i = 0; i < numberOfKeys; i++) {
-        if (keys[i] >= key) {
-            return i;
-        }
-    }
-
-    // Return the largest index since it's bigger than all previous keys
-    return static_cast<unsigned int>(numberOfKeys);
-}
 
 #endif // PROJECT_2_NODE_HPP

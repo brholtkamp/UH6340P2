@@ -13,6 +13,7 @@ public:
     leafNode() : node<K, V>(), nextLeaf(nullptr) { }
 
     std::shared_ptr<node<K, V>> findNode(const K key) override;
+	unsigned int findIndex(const K key) override;
     nodeType getType() override { return LEAF; }
 
     std::unique_ptr<split<K, V>> insert(const K key, const V value) override;
@@ -21,7 +22,7 @@ public:
     bool update(const K key, const V value) override;
     bool remove(const K key) override;
 
-    std::array<V, DEFAULT_DEGREE + 1> values;
+    std::array<V, DEFAULT_DEGREE> values;
     std::shared_ptr<leafNode<K, V>> nextLeaf;
 };
 
@@ -32,24 +33,32 @@ std::shared_ptr<node<K, V>> leafNode<K, V>::findNode(const K key) {
 }
 
 template <typename K, typename V>
+unsigned int leafNode<K, V>::findIndex(const K key) {
+	unsigned int i = 0;
+
+	while (i < this->numberOfKeys && this->keys[i] < key) {
+		i++;
+	}
+
+	return i;
+}
+
+template <typename K, typename V>
 std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) {
     // Find the proper index for this key
     unsigned int index = this->findIndex(key);
 
     // Check to see if it's currently full
     if (this->numberOfKeys == DEFAULT_DEGREE) {
-#if DEBUG
-        std::cout << "Leaf overflowed, having to split: "; this->list(0);
-#endif
         // Figure out the middle of this nodee
         unsigned int middleIndex = (DEFAULT_DEGREE + 1) / 2;
 
         // Create a new leaf
         auto newLeaf = std::make_shared<leafNode<K, V>>();
+		newLeaf->numberOfKeys = this->numberOfKeys - middleIndex;
 
         // Copy in the values from the right half of this node
         for (unsigned int i = 0; i < middleIndex; i++) {
-            newLeaf->numberOfKeys++;
             newLeaf->keys[i] = this->keys[middleIndex + i];
             newLeaf->values[i] = this->values[middleIndex + i];
         }
@@ -64,18 +73,16 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
             newLeaf->insert(key, value);
         }
 
-#if DEBUG
-        std::cout << "Left: "; this->list(0); std::cout << "Right: "; newLeaf->list(0);
-#endif
+        // String together the leaves
+		newLeaf->nextLeaf = this->nextLeaf;
+        this->nextLeaf = newLeaf;
+
         // Create the split struct to send back the new configuration
         auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
         splitResult->key = newLeaf->keys[0];
         splitResult->left = this->shared_from_this();
         splitResult->right = newLeaf;
         
-        // String together the leaves
-        this->nextLeaf = newLeaf;
-
         return splitResult;
     }
     else {
@@ -87,7 +94,7 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
         }
         else {
             // Just add into the proper location and move items over
-            for (unsigned int i = this->numberOfKeys; i > index; i--) {
+            for (unsigned int i = this->numberOfKeys; i > index; --i) {
                 this->keys[i] = this->keys[i - 1];
                 this->values[i] = this->values[i - 1];
             }
@@ -122,11 +129,14 @@ void leafNode<K, V>::list(unsigned int depth) {
 
 template <typename K, typename V>
 bool leafNode<K, V>::update(const K key, const V value) {
-    unsigned int index = this->findIndex(key);
-    if (this->keys[index] == key) {
-        this->values[index] = value;
-        return true;
-    }
+	unsigned int index = this->findIndex(key);
+	// Check for out of bounds
+	if (index < DEFAULT_DEGREE) {
+		if (this->keys[index] == key) {
+			this->values[index] = value;
+			return true;
+		}
+	}
 
     return false;
 }
@@ -135,7 +145,7 @@ template <typename K, typename V>
 bool leafNode<K, V>::remove(const K key) {
     unsigned int index = this->findIndex(key);
     if (this->keys[index] == key) {
-        for (unsigned int i = index; i < this->numberOfKeys; i++) {
+        for (unsigned int i = index; i < DEFAULT_DEGREE - 1; i++) {
             this->keys[i] = this->keys[i + 1];
             this->values[i] = this->values[i + 1];
         }
