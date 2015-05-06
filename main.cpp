@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-#include "Tree/tree.hpp"
+#include "tree.hpp"
 
 int main() {
     tree<std::string, std::string> tree;
@@ -42,10 +42,18 @@ int main() {
     tree.update("AAH", "!!!");
     tree.update("BBJ", "!!!!!");
     tree.list();
+    tree.remove("HHH");
+    tree.remove("AAA");
+    tree.remove("AAB");
+    tree.remove("AAC");
+    tree.remove("AAD");
+    tree.remove("AAE");
+    tree.remove("AAH");
+    tree.list();
 
-    std::string exit = "";
-    while (exit != "exit") {
-        std::cin >> exit;
+    std::string input = "";
+    while (input != "exit") {
+        std::cin >> input;
     }
 
     return 0;

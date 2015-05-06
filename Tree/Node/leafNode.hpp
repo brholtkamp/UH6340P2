@@ -10,7 +10,7 @@
 template <typename K, typename V>
 class leafNode : public node < K, V > {
 public:
-    leafNode() : node<K, V>() { }
+    leafNode() : node<K, V>(), nextLeaf(nullptr) { }
 
     std::shared_ptr<node<K, V>> findNode(const K key) override;
     nodeType getType() override { return LEAF; }
@@ -22,6 +22,7 @@ public:
     bool remove(const K key) override;
 
     std::array<V, DEFAULT_DEGREE + 1> values;
+    std::shared_ptr<leafNode<K, V>> nextLeaf;
 };
 
 template <typename K, typename V>
@@ -38,7 +39,7 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
     // Check to see if it's currently full
     if (this->numberOfKeys == DEFAULT_DEGREE) {
 #if DEBUG
-		std::cout << "Leaf overflowed, having to split: "; this->list(0);
+        std::cout << "Leaf overflowed, having to split: "; this->list(0);
 #endif
         // Figure out the middle of this nodee
         unsigned int middleIndex = (DEFAULT_DEGREE + 1) / 2;
@@ -64,13 +65,16 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
         }
 
 #if DEBUG
-		std::cout << "Left: "; this->list(0); std::cout << "Right: "; newLeaf->list(0);
+        std::cout << "Left: "; this->list(0); std::cout << "Right: "; newLeaf->list(0);
 #endif
         // Create the split struct to send back the new configuration
         auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
         splitResult->key = newLeaf->keys[0];
         splitResult->left = this->shared_from_this();
         splitResult->right = newLeaf;
+        
+        // String together the leaves
+        this->nextLeaf = newLeaf;
 
         return splitResult;
     }
@@ -111,18 +115,17 @@ void leafNode<K, V>::list(unsigned int depth) {
 
     std::cout << buffer;
     for (unsigned int i = 0; i < this->numberOfKeys; i++) {
-        std::cout << this->keys[i] << ":" << this->values[i] << ", ";
+        std::cout << this->keys[i] << ":" << this->values[i] << " ";
     }
     std::cout << std::endl;
 }
 
 template <typename K, typename V>
 bool leafNode<K, V>::update(const K key, const V value) {
-    for (unsigned int i = 0; i < this->numberOfKeys; i++) {
-        if (this->keys[i] == key) {
-            this->values[i] = value;
-            return true;
-        }
+    unsigned int index = this->findIndex(key);
+    if (this->keys[index] == key) {
+        this->values[index] = value;
+        return true;
     }
 
     return false;
@@ -130,6 +133,17 @@ bool leafNode<K, V>::update(const K key, const V value) {
 
 template <typename K, typename V>
 bool leafNode<K, V>::remove(const K key) {
+    unsigned int index = this->findIndex(key);
+    if (this->keys[index] == key) {
+        for (unsigned int i = index; i < this->numberOfKeys; i++) {
+            this->keys[i] = this->keys[i + 1];
+            this->values[i] = this->values[i + 1];
+        }
+
+        this->numberOfKeys--;
+        return true;
+    }
+
     return false;
 }
 

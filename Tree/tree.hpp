@@ -7,9 +7,9 @@
 
 #include <memory>
 
-#include "Node/node.hpp"
-#include "Node/internalNode.hpp"
-#include "Node/leafNode.hpp"
+#include "node.hpp"
+#include "internalNode.hpp"
+#include "leafNode.hpp"
 
 template<typename K, typename V>
 class tree {
@@ -64,14 +64,32 @@ bool tree<K, V>::exists(const K key) {
     auto results = this->rootNode->search(key);
     if (results != nullptr) {
         return std::find(results->keys.begin(), results->keys.end(), key) != results->keys.end();
-    } else {
+    }
+    else {
         return false;
     }
 }
 
 template <typename K, typename V>
 void tree<K, V>::list() {
+    std::cout << "Tree Structure: " << std::endl;
     this->rootNode->list(0);
+
+    std::cout << std::endl << "Leaf Structure: " << std::endl;
+    auto node = this->rootNode;
+    while (node->getType() != LEAF) {
+        node = std::dynamic_pointer_cast<internalNode<K, V>>(node)->children[0];
+    }
+    
+    unsigned int total = 0;
+    while (node != nullptr) {
+        for (unsigned int i = 0; i < node->numberOfKeys; i++) {
+            std::cout << node->keys[i] << " ";
+            total++;
+        }
+        node = std::dynamic_pointer_cast<leafNode<K, V>>(node)->nextLeaf;
+    }
+    std::cout << std::endl << "Total: " << total << std::endl;
 }
 
 template <typename K, typename V>
@@ -81,7 +99,7 @@ bool tree<K, V>::update(const K key, const V value) {
 
 template <typename K, typename V>
 bool tree<K, V>::remove(const K key) {
-    return false;
+    return this->rootNode->remove(key);
 }
 
 #endif //PROJECT_2_TREE_HPP

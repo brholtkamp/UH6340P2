@@ -27,7 +27,7 @@ public:
 template <typename K, typename V>
 class node : public std::enable_shared_from_this<node<K, V>> {
 public:
-    node(): numberOfKeys(0) { }
+    node() : numberOfKeys(0) { }
 
     virtual std::shared_ptr<node<K, V>> findNode(const K key) = 0;
     virtual nodeType getType() = 0;
@@ -55,7 +55,7 @@ unsigned int node<K, V>::findIndex(const K key) {
 
     // Attempt to find the next biggest key
     for (unsigned int i = 0; i < numberOfKeys; i++) {
-        if (keys[i] > key) {
+        if (keys[i] >= key) {
             return i;
         }
     }

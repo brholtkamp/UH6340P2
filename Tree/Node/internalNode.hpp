@@ -35,7 +35,7 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
     // Check to see if this node needs to be split
     if (this->numberOfKeys == DEFAULT_DEGREE) {
 #if DEBUG
-		std::cout << "Internal node overflowed, splitting" << std::endl;
+        std::cout << "Internal node overflowed, splitting" << std::endl;
 #endif
         // Figure out the middle of this node
         unsigned int middleIndex = (DEFAULT_DEGREE + 1) / 2;
@@ -65,12 +65,13 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
 
         if (key < splitResult->key) {
             this->insert(key, value);
-        } else {
+        }
+        else {
             newInternalNode->insert(key, value);
         }
 
 #if DEBUG
-		std::cout << "Left: "; this->list(0); std::cout << "Right: "; newInternalNode->list(0);
+        std::cout << "Left: "; this->list(0); std::cout << "Right: "; newInternalNode->list(0);
 #endif
 
         return splitResult;
@@ -91,7 +92,7 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
                 this->children[index + 1] = results->right;
                 this->numberOfKeys++;
             }
-                // Insert this one into the internal node normally
+            // Insert this one into the internal node normally
             else {
                 // Move the last child over 1 to make room
                 this->children[this->numberOfKeys + 1] = this->children[this->numberOfKeys];
@@ -107,6 +108,11 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
                 this->children[index + 1] = results->right;
                 this->numberOfKeys++;
             }
+
+            // Make sure we string together the leaf nodes if they happen to show up
+            if (this->children[index]->getType() == LEAF) {
+                std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 1])->nextLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 2]);
+            }
         }
 
         return nullptr;
@@ -117,7 +123,7 @@ template <typename K, typename V>
 std::shared_ptr<node<K, V>> internalNode<K, V>::search(const K key) {
     for (unsigned int i = 0; i < this->numberOfKeys; i++) {
         if (this->keys[i] <= key && key <= this->keys[i + 1]) {
-            return this->children[i+1]->search(key);
+            return this->children[i + 1]->search(key);
         }
     }
     return nullptr;
@@ -142,18 +148,34 @@ void internalNode<K, V>::list(unsigned int depth) {
 
 template <typename K, typename V>
 bool internalNode<K, V>::update(const K key, const V value) {
-    for (unsigned int i = 0; i < this->numberOfKeys; i++) {
-        if (this->keys[i] <= key && key <= this->keys[i + 1]) {
-            return this->children[i+1]->update(key, value);
-        }
-    }
-
-    return false;
+    return this->children[this->findIndex(key)]->update(key, value);
 }
 
 template <typename K, typename V>
 bool internalNode<K, V>::remove(const K key) {
-    return false;
+    // Tell that child to remove that key
+    unsigned int index = this->findIndex(key);
+    bool result = this->children[index]->remove(key);
+
+    // Make sure the removal happened and check to see if the node should be removed (has no more keys)
+    if (this->children[index]->numberOfKeys == 0 && result) {
+        // Iterate through and replace the previous values
+        for (unsigned int i = index; i < this->numberOfKeys; i++) {
+            this->keys[i] = this->keys[i + 1];
+            this->children[i] = this->children[i + 1];
+        }
+
+        // Track the deletion
+        this->numberOfKeys--;
+
+        // Update the linked leaves
+        if (this->children[index]->getType() == LEAF) {
+            auto node = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index]);
+            node->nextLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 1]);
+        }
+    }
+
+    return result;
 }
 
 #endif // PROJECT_2_INTERNALNODE_HPP
