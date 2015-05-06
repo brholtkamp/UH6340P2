@@ -82,6 +82,7 @@ preceded by an asterisk in column 1. Every time you
 program encounters the keyword `SNAPSHOT`, it should
 print out a summary of the current structure of the
 current index tree. This output should include:
+
 1. The number of records in your table;
 2. The number of blocks occupied by these data,
 B+ tree nodes excluded;
