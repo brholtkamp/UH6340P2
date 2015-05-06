@@ -8,6 +8,10 @@
 #include "node.hpp"
 #include "leafNode.hpp"
 
+#if FILEOUTPUT
+#include "../../studentRecord.hpp"
+#endif
+
 template <typename K, typename V>
 class internalNode : public node<K, V> {
 public:
@@ -15,6 +19,7 @@ public:
 
     std::shared_ptr<node<K, V>> findNode(const K key) override;
 	unsigned int findIndex(const K key) override;
+	unsigned int getDepth(unsigned int depth) override { return this->children[0]->getDepth(depth + 1);  }
     nodeType getType() override { return INTERNAL; }
 
     std::unique_ptr<split<K, V>> insert(const K key, const V value) override;
@@ -136,11 +141,10 @@ void internalNode<K, V>::list(unsigned int depth) {
     for (unsigned int i = 0; i < depth; i++) {
         buffer += "\t";
     }
-
-    for (unsigned int i = 0; i < this->numberOfKeys; i++) {
-        std::cout << buffer << this->keys[i] << ", ";
-    }
-    std::cout << std::endl;
+#if FILEOUTPUT
+	output << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+#endif
+	std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
 
     for (unsigned int i = 0; i <= this->numberOfKeys; i++) {
         this->children[i]->list(depth + 1);

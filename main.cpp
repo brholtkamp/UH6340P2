@@ -5,63 +5,65 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <algorithm>
 
-#include "Tree/tree.hpp"
+#include "studentRecord.hpp"
+
+std::string getNext(std::ifstream& file) {
+	std::string buffer;
+
+	if (file.good()) {
+		std::getline(file, buffer);
+
+		// See if it's a command
+		if (buffer.find("*") != std::string::npos) {
+			return buffer.substr(1);
+		} else {
+			// Drop it to lowercase since it's not a command
+			for (auto& character : buffer) {
+				character = tolower(character);
+			}
+
+			return buffer;
+		}
+	}
+
+	return "";
+}
 
 int main() {
-    tree<std::string, std::string> tree;
+	studentRecord records;
 
 	std::string filename;
 	std::cout << "Please type in the filename for the input file: ";
 	std::cin >> filename;
 
+	commandType command = NONE;
+	std::string buffer = "";
+	std::string updateValue = "";
+
 	std::ifstream file(filename);
-	std::string buffer;
-	std::string currentCommand = "";
+	while (!file.is_open()) {
+		std::cerr << "File not found, try another file name: ";
+		std::cin >> filename;
+
+		file.open(filename);
+	}
+
 	while (file.good()) {
-		std::getline(file, buffer);
-
-		// See if this is a command
-		if (buffer.find("*") != std::string::npos) {
-			currentCommand = buffer.substr(1, buffer.size());
+		// Grab a piece of data
+		buffer = getNext(file);
+		updateValue = "";
+		
+		// Check to see if it's a command
+		if (records.generateCommand(buffer) != NONE) {
+			command = records.generateCommand(buffer);
 		} else {
-			std::string name = buffer;
-			for (auto &character : name) {
-				character = static_cast<char>(tolower(character));
+			// Grab the next piece of data if it's an update
+			if (command == UPDATE) {
+				updateValue = getNext(file);
 			}
 
-			if (currentCommand == "INSERT") {
-				if (!tree.insert(name, "")) {
-					std::cerr << "Failed to insert: " << name << std::endl;
-				} else {
-					// Success!
-				}
-			} else if (currentCommand == "UPDATE") {
-				std::string note;
-				std::getline(file, note);
-				if (!tree.update(name, note)) {
-					std::cerr << "Failed to update: " << name << " with " << note << std::endl;
-				} else {
-					// Success!
-				}
-			} else if (currentCommand == "SEARCH") {
-				std::shared_ptr<std::string> result = tree.search(name);
-				if (result == nullptr) {
-					std::cerr << "Failed to find: " << name << std::endl;
-				} else {
-					// Success!
-					std::cout << *(result) << std::endl;
-				}
-			} else if (currentCommand == "DELETE") {
-				if (!tree.remove(name)) {
-					std::cerr << "Failed to remove: " << name << std::endl;
-				} else {
-					// Success!
-				}
-			} else if (currentCommand == "SNAPSHOT") {
-				tree.list();
-			}
+			records.handleCommand(command, buffer, updateValue);
 		}
 	}
 

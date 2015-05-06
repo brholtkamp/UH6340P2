@@ -68,6 +68,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="studentRecord.hpp" />
     <ClInclude Include="Tree\Node\internalNode.hpp" />
     <ClInclude Include="Tree\Node\leafNode.hpp" />
     <ClInclude Include="Tree\Node\node.hpp" />
@@ -78,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
+    <Text Include="test2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
