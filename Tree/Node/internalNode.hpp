@@ -14,6 +14,7 @@ public:
     internalNode() : node<K, V>() { }
 
     std::shared_ptr<node<K, V>> findNode(const K key) override;
+	unsigned int findIndex(const K key) override;
     nodeType getType() override { return INTERNAL; }
 
     std::unique_ptr<split<K, V>> insert(const K key, const V value) override;
@@ -32,22 +33,29 @@ std::shared_ptr<node<K, V>> internalNode<K, V>::findNode(const K key) {
 }
 
 template <typename K, typename V>
+unsigned int internalNode<K, V>::findIndex(const K key) {
+	unsigned int i = 0;
+
+	while (i < this->numberOfKeys && this->keys[i] <= key) {
+		i++;
+	}
+
+	return i;
+}
+
+template <typename K, typename V>
 std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V value) {
     // Check to see if this node needs to be split
     if (this->numberOfKeys == DEFAULT_DEGREE) {
-#if DEBUG
-        std::cout << "Internal node overflowed, splitting" << std::endl;
-#endif
         // Figure out the middle of this node
         unsigned int middleIndex = (DEFAULT_DEGREE + 1) / 2;
 
         // Create a new internal node for the right
         auto newInternalNode = std::make_shared<internalNode<K, V>>();
-        newInternalNode->numberOfKeys = this->numberOfKeys - middleIndex;
+		newInternalNode->numberOfKeys = this->numberOfKeys - middleIndex;
 
         // Populate the new internal node with the right keys and children
         for (unsigned int i = 0; i < middleIndex; i++) {
-            newInternalNode->numberOfKeys++;
             newInternalNode->keys[i] = this->keys[middleIndex + i];
             newInternalNode->children[i] = this->children[middleIndex + i];
         }
@@ -55,25 +63,27 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
         // Catch the final child on the furthest right
         newInternalNode->children[newInternalNode->numberOfKeys] = this->children[this->numberOfKeys];
 
-        // Update this nodes number of keys to "erase" elements
+		// Release the pointers to the now non-children
+		for (unsigned int i = middleIndex; i < this->numberOfKeys; i++) {
+			this->children[i] = nullptr;
+		}
+
+		// Update the number of keys to reflect the split
         this->numberOfKeys = middleIndex - 1;
 
-        // Setup the split results to send back
-        auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
-        splitResult->key = this->keys[middleIndex - 1];
-        splitResult->left = this->shared_from_this();
-        splitResult->right = newInternalNode;
-
-        if (key < splitResult->key) {
+		// Add in the new key
+        if (key < this->keys[this->numberOfKeys]) {
             this->insert(key, value);
         }
         else {
             newInternalNode->insert(key, value);
         }
 
-#if DEBUG
-        std::cout << "Left: "; this->list(0); std::cout << "Right: "; newInternalNode->list(0);
-#endif
+        // Setup the split results to send back
+        auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
+		splitResult->key = this->keys[this->numberOfKeys];
+        splitResult->left = this->shared_from_this();
+        splitResult->right = newInternalNode;
 
         return splitResult;
     }
@@ -109,11 +119,6 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
                 this->children[index + 1] = results->right;
                 this->numberOfKeys++;
             }
-
-            // Make sure we string together the leaf nodes if they happen to show up
-            if (this->children[index]->getType() == LEAF) {
-                std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 1])->nextLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 2]);
-            }
         }
 
         return nullptr;
@@ -122,12 +127,7 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
 
 template <typename K, typename V>
 std::shared_ptr<node<K, V>> internalNode<K, V>::search(const K key) {
-    for (unsigned int i = 0; i < this->numberOfKeys; i++) {
-        if (this->keys[i] <= key && key <= this->keys[i + 1]) {
-            return this->children[i + 1]->search(key);
-        }
-    }
-    return nullptr;
+	return this->children[this->findIndex(key)]->search(key);
 }
 
 template <typename K, typename V>
@@ -160,6 +160,13 @@ bool internalNode<K, V>::remove(const K key) {
 
     // Make sure the removal happened and check to see if the node should be removed (has no more keys)
     if (this->children[index]->numberOfKeys == 0 && result) {
+		// Update the linked leaves structure
+		if (this->children[index]->getType() == LEAF) {
+			auto leftNode = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index - 1]);
+			auto rightNode = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 1]);
+			leftNode->nextLeaf = rightNode;
+		}
+
         // Iterate through and replace the previous values
         for (unsigned int i = index; i < this->numberOfKeys; i++) {
             this->keys[i] = this->keys[i + 1];
@@ -168,12 +175,6 @@ bool internalNode<K, V>::remove(const K key) {
 
         // Track the deletion
         this->numberOfKeys--;
-
-        // Update the linked leaves
-        if (this->children[index]->getType() == LEAF) {
-            auto node = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index]);
-            node->nextLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 1]);
-        }
     }
 
     return result;

@@ -17,7 +17,7 @@ public:
     tree() : rootNode(std::make_shared<leafNode<K, V>>()) { }
 
     bool insert(const K key, const V value);
-    std::shared_ptr<node<K, V>> search(const K key);
+    std::shared_ptr<V> search(const K key);
     bool exists(const K key);
     void list();
     bool update(const K key, const V value);
@@ -33,8 +33,8 @@ private:
 template <typename K, typename V>
 bool tree<K, V>::insert(const K key, const V value) {
     // Check to make sure this is a unique key
-    if (exists(key)) {
-        std::cerr << "Key: " << key << " already exists within the tree, insertion failed" << std::endl;
+    if (this->exists(key)) {
+		std::cerr << "Unable to insert: " << key << ": already exists in tree" << std::endl;
         return false;
     }
 
@@ -49,14 +49,22 @@ bool tree<K, V>::insert(const K key, const V value) {
         newRoot->children[0] = results->left;
         newRoot->children[1] = results->right;
         this->rootNode = newRoot;
-    }
+	}
 
     return true;
 }
 
 template <typename K, typename V>
-std::shared_ptr<node<K, V>> tree<K, V>::search(const K key) {
-    return this->rootNode->search(key);
+std::shared_ptr<V> tree<K, V>::search(const K key) {
+    auto node = this->rootNode->search(key);
+	if (node != nullptr) {
+		std::shared_ptr<V> result = std::make_shared<V>(std::dynamic_pointer_cast<leafNode<K, V>>(node)->values[node->findIndex(key)]);
+		if (result != nullptr) {
+			return result;
+		}
+	}
+
+	return nullptr;
 }
 
 template <typename K, typename V>
@@ -94,11 +102,18 @@ void tree<K, V>::list() {
 
 template <typename K, typename V>
 bool tree<K, V>::update(const K key, const V value) {
+	if (!this->exists(key)) {
+		std::cerr << "Unable to update: " << key << ": does not exist in tree" << std::endl;
+	}
+
     return this->rootNode->update(key, value);
 }
 
 template <typename K, typename V>
 bool tree<K, V>::remove(const K key) {
+	if (!this->exists(key)) {
+		std::cerr << "Unable to delete: " << key << ": does not exist in tree" << std::endl;
+	}
     return this->rootNode->remove(key);
 }
 
