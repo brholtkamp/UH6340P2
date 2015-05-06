@@ -1,0 +1,804 @@
+Unable to search: zeeman,jan: does not exist in tree
+Unable to delete: mitchell,eddy: does not exist in tree
+Unable to insert: duval,pascale: already exists in tree
+Unable to insert: rousseau,francis: already exists in tree
+Unable to insert: jackson,janet jason: already exists in tree
+Unable to insert: hill,vivian: already exists in tree
+Unable to insert: allen,patrick: already exists in tree
+Unable to insert: kergezec,sabine: already exists in tree
+Unable to insert: escudier,samuel: already exists in tree
+Unable to insert: dubois,marion: already exists in tree
+Unable to insert: muller,nicolas: already exists in tree
+Unable to insert: muller,ludovic: already exists in tree
+Unable to insert: wilson,scott: already exists in tree
+Unable to insert: baudoux,cyrille: already exists in tree
+Unable to insert: thomas,gerald: already exists in tree
+Unable to insert: lambert,josette: already exists in tree
+Unable to insert: lewis,vivian: already exists in tree
+Unable to insert: wilson,sharon: already exists in tree
+Unable to insert: harris,bernard: already exists in tree
+Unable to insert: duval,brigitte: already exists in tree
+Unable to insert: leroy,ernest: already exists in tree
+Unable to insert: dupont,louis: already exists in tree
+Unable to insert: lee,wendy: already exists in tree
+Unable to insert: lefevre,dominique: already exists in tree
+Unable to insert: roberts,theodore: already exists in tree
+Unable to insert: baudoux,marcelle: already exists in tree
+Unable to insert: moore,henry: already exists in tree
+Unable to insert: lee,theodore: already exists in tree
+Unable to insert: philipot,sophie: already exists in tree
+Unable to insert: wright,pamela: already exists in tree
+Unable to insert: thompson,cynthia: already exists in tree
+Unable to insert: taylor,linda: already exists in tree
+Unable to insert: taylor,albert: already exists in tree
+Unable to insert: laurent,rodolpheroger: already exists in tree
+Unable to insert: muller,xavier: already exists in tree
+Unable to insert: perrin,sylvie: already exists in tree
+Unable to insert: morel,victor: already exists in tree
+Unable to insert: king,jean: already exists in tree
+Unable to insert: mitchell,dennis: already exists in tree
+Unable to insert: thompson,cynthia: already exists in tree
+Unable to insert: allen,patrick: already exists in tree
+Unable to insert: white,karen: already exists in tree
+Unable to insert: taylor,virginia: already exists in tree
+Unable to insert: smith,victoria: already exists in tree
+Unable to insert: wilson,sandra: already exists in tree
+Unable to insert: edwards,roger: already exists in tree
+Unable to insert: duval,marion: already exists in tree
+Unable to insert: allen,daniel: already exists in tree
+Unable to insert: harris,wendy: already exists in tree
+Unable to insert: beaufort,alphonse: already exists in tree
+Unable to insert: clark,patrick: already exists in tree
+Unable to insert: gauthier,jacqueline: already exists in tree
+Unable to insert: nelson,charles: already exists in tree
+Unable to insert: williams,mark: already exists in tree
+Unable to insert: evans,louise: already exists in tree
+Unable to insert: fabre,christine: already exists in tree
+Unable to insert: philipot,rodolpheroger: already exists in tree
+Unable to insert: adams,paul: already exists in tree
+Unable to insert: brown,john: already exists in tree
+Unable to insert: baker,john: already exists in tree
+Unable to insert: adams,gregory: already exists in tree
+Unable to insert: thomas,pamela: already exists in tree
+Unable to insert: clark,james: already exists in tree
+Unable to insert: allen,emily: already exists in tree
+Unable to insert: parker,sylvia: already exists in tree
+Unable to insert: williams,charles: already exists in tree
+Unable to insert: mitchell,eric: already exists in tree
+Unable to insert: verbois,caroline: already exists in tree
+Unable to insert: lefebvre,francine: already exists in tree
+Unable to insert: dumont,elisabeth: already exists in tree
+Unable to insert: michel,emilie: already exists in tree
+Unable to insert: pourbaix,louise: already exists in tree
+Unable to insert: thomas,charlotte: already exists in tree
+Unable to insert: phillips,james: already exists in tree
+Unable to insert: michaud,cyrille: already exists in tree
+Unable to insert: wilson,sandra: already exists in tree
+Unable to insert: allen,francis: already exists in tree
+Unable to insert: lee,kenneth: already exists in tree
+Unable to insert: vincent,francis: already exists in tree
+Unable to insert: davis,patrick: already exists in tree
+Unable to insert: morin,francis: already exists in tree
+Unable to insert: mercier,ernest: already exists in tree
+Unable to insert: baker,scott: already exists in tree
+Unable to insert: dulac,bertrand: already exists in tree
+Unable to insert: parker,theodore: already exists in tree
+Unable to insert: campbell,lucille: already exists in tree
+Unable to insert: wright,john: already exists in tree
+Unable to insert: philipot,rodolpheroger: already exists in tree
+Unable to insert: michaud,raoul: already exists in tree
+Unable to insert: moore,henry: already exists in tree
+Unable to insert: vincent,pascale: already exists in tree
+Unable to insert: clark,elizabeth: already exists in tree
+Unable to insert: moore,philip: already exists in tree
+Unable to insert: thomas,nancy: already exists in tree
+Unable to insert: jones,karen: already exists in tree
+Unable to insert: richard,ludovic: already exists in tree
+Unable to insert: robinson,john: already exists in tree
+Unable to insert: white,oliver: already exists in tree
+Unable to insert: williams,samuel: already exists in tree
+Unable to insert: green,helen: already exists in tree
+Unable to insert: nicolas,pascale: already exists in tree
+Unable to insert: turner,vivian: already exists in tree
+Unable to insert: campbell,george: already exists in tree
+Unable to insert: blanc,monique: already exists in tree
+Unable to insert: baker,patrick: already exists in tree
+Unable to insert: martin,brigitte: already exists in tree
+Unable to insert: picard,gustave: already exists in tree
+Unable to insert: mitchell,helen: already exists in tree
+Unable to insert: robert,mireille: already exists in tree
+Unable to insert: phillips,laura: already exists in tree
+Unable to insert: laurent,florence: already exists in tree
+Unable to insert: young,jean: already exists in tree
+Unable to insert: petit,daniel: already exists in tree
+Unable to insert: brown,janet jason: already exists in tree
+Unable to insert: scott,susan: already exists in tree
+Unable to insert: smith,george: already exists in tree
+Unable to insert: scott,roger: already exists in tree
+Unable to insert: mitchell,marion: already exists in tree
+Unable to insert: turner,charles: already exists in tree
+Unable to insert: blanc,fabienne: already exists in tree
+Unable to insert: lee,theodore: already exists in tree
+Unable to insert: nicolas,alexandre: already exists in tree
+Unable to insert: phillips,christopher: already exists in tree
+Unable to insert: green,jennifer: already exists in tree
+Unable to insert: beaufort,monique: already exists in tree
+Unable to insert: lee,andrew: already exists in tree
+Unable to insert: brune,charles: already exists in tree
+Unable to insert: white,karen: already exists in tree
+Unable to insert: carter,julian: already exists in tree
+Unable to insert: muller,yvonne: already exists in tree
+Unable to insert: green,mary: already exists in tree
+Unable to insert: williams,paul: already exists in tree
+Unable to insert: parker,dorothy: already exists in tree
+Unable to insert: martin,ludovic: already exists in tree
+Unable to insert: picard,sandrine: already exists in tree
+Unable to insert: duval,catherine: already exists in tree
+Unable to insert: davis,mary: already exists in tree
+Unable to insert: verbois,sylvie: already exists in tree
+Unable to insert: robert,odile: already exists in tree
+Unable to insert: fournier,antoinette: already exists in tree
+Unable to insert: williams,jonathan: already exists in tree
+Unable to insert: evans,karen: already exists in tree
+Unable to insert: rousseau,edgar: already exists in tree
+Unable to insert: johnson,andrew: already exists in tree
+Unable to insert: mathieu,victor: already exists in tree
+Unable to insert: duval,charles: already exists in tree
+Unable to insert: adams,theodore: already exists in tree
+Unable to insert: gauthier,alain: already exists in tree
+Unable to insert: roberts,theodore: already exists in tree
+Unable to insert: carter,joseph: already exists in tree
+Unable to insert: williams,jonathan: already exists in tree
+Unable to insert: scott,ruth: already exists in tree
+Unable to insert: miller,albert: already exists in tree
+Unable to insert: robinson,christopher: already exists in tree
+Unable to insert: adams,gerald: already exists in tree
+Unable to insert: neveu,louis: already exists in tree
+Unable to insert: petit,jeanine: already exists in tree
+Unable to insert: wright,james: already exists in tree
+Unable to insert: turner,vivian: already exists in tree
+Unable to insert: laval,roland: already exists in tree
+Unable to insert: davis,cynthia: already exists in tree
+Unable to insert: baker,philip: already exists in tree
+Unable to insert: guerin,isabelle: already exists in tree
+Unable to insert: oudinot,antoine: already exists in tree
+Unable to insert: wilson,andrew: already exists in tree
+Unable to insert: carter,vivian: already exists in tree
+Unable to insert: michaud,cyrille: already exists in tree
+Unable to insert: roux,samuel: already exists in tree
+Unable to insert: thompson,henry: already exists in tree
+Unable to insert: laval,emile: already exists in tree
+Unable to insert: duval,charles: already exists in tree
+Unable to insert: vincent,sandrine: already exists in tree
+Unable to insert: hill,jack: already exists in tree
+Unable to insert: girard,marie: already exists in tree
+Unable to insert: petit,alice: already exists in tree
+Unable to insert: davis,frances: already exists in tree
+Unable to insert: moore,allison: already exists in tree
+Unable to insert: allen,helen: already exists in tree
+Unable to insert: martin,fabienne: already exists in tree
+Unable to insert: escudier,henriette: already exists in tree
+Unable to insert: evans,alexander: already exists in tree
+Unable to insert: lee,andrew: already exists in tree
+Unable to insert: baudoux,christian: already exists in tree
+Unable to insert: white,victoria: already exists in tree
+Unable to insert: carter,gregory: already exists in tree
+Unable to insert: moore,frances: already exists in tree
+Unable to insert: clark,carol: already exists in tree
+Unable to insert: morel,alice: already exists in tree
+Unable to insert: langlais,barbara: already exists in tree
+Unable to insert: scott,edgar: already exists in tree
+Unable to insert: green,edgar: already exists in tree
+Unable to insert: nelson,cynthia: already exists in tree
+Unable to insert: lee,danny: already exists in tree
+Unable to insert: perrin,emilie: already exists in tree
+Unable to insert: martin,ludovic: already exists in tree
+Unable to insert: clark,donna: already exists in tree
+Unable to insert: white,wendy: already exists in tree
+Unable to insert: wright,allison: already exists in tree
+Unable to insert: roberts,jean: already exists in tree
+Unable to insert: thompson,scott: already exists in tree
+Unable to insert: martin,michael: already exists in tree
+Unable to insert: michaud,cyrille: already exists in tree
+Unable to insert: martin,sarah: already exists in tree
+Unable to insert: legrand,alexandre: already exists in tree
+Unable to insert: campbell,allison: already exists in tree
+Unable to insert: baker,michael: already exists in tree
+Unable to insert: dumont,elisabeth: already exists in tree
+Unable to insert: thompson,christopher: already exists in tree
+Unable to insert: king,virginia: already exists in tree
+Unable to insert: davis,harold: already exists in tree
+Unable to insert: richard,lucille: already exists in tree
+Unable to insert: edwards,jean: already exists in tree
+Unable to insert: adams,alan: already exists in tree
+Unable to insert: chevalier,antoinette: already exists in tree
+Unable to insert: miller,brian: already exists in tree
+Unable to insert: lee,paul: already exists in tree
+Unable to insert: jackson,roger: already exists in tree
+Unable to insert: phillips,alice: already exists in tree
+Unable to insert: walker,betty: already exists in tree
+Unable to insert: moore,dorothy: already exists in tree
+Unable to insert: white,victoria: already exists in tree
+Unable to insert: miller,patrick: already exists in tree
+Unable to insert: turner,john: already exists in tree
+Unable to insert: young,wendy: already exists in tree
+Unable to insert: thompson,julian: already exists in tree
+Unable to insert: thomas,elizabeth: already exists in tree
+Unable to insert: lee,mary: already exists in tree
+Unable to insert: walker,sandra: already exists in tree
+Unable to insert: clark,elizabeth: already exists in tree
+Unable to insert: thomas,joseph: already exists in tree
+Unable to insert: thomas,joseph: already exists in tree
+Unable to insert: taylor,pamela: already exists in tree
+Unable to insert: hall,donna: already exists in tree
+Unable to insert: taylor,dorothy: already exists in tree
+Unable to insert: wright,alexander: already exists in tree
+Unable to insert: petit,nadia: already exists in tree
+Unable to insert: david,alexandre: already exists in tree
+Unable to insert: carter,vivian: already exists in tree
+Unable to insert: hill,allison: already exists in tree
+Unable to insert: walker,vivian: already exists in tree
+Unable to insert: mercier,dominique: already exists in tree
+Unable to insert: clark,theodore: already exists in tree
+Unable to insert: campbell,allison: already exists in tree
+Unable to insert: moreau,dominique: already exists in tree
+Unable to insert: edwards,gary: already exists in tree
+Unable to insert: wilson,jeffrey: already exists in tree
+Unable to insert: lee,samuel: already exists in tree
+Unable to insert: carter,brenda: already exists in tree
+Unable to insert: phillips,vivian: already exists in tree
+Unable to insert: phillips,james: already exists in tree
+Unable to insert: phillips,donna: already exists in tree
+Unable to insert: collins,sandra: already exists in tree
+Unable to insert: mitchell,theodore: already exists in tree
+Unable to insert: wilson,jennifer: already exists in tree
+Unable to insert: oudinot,sandrine: already exists in tree
+Unable to insert: allen,edgar: already exists in tree
+Unable to insert: edwards,anna: already exists in tree
+Unable to insert: moore,alexander: already exists in tree
+Unable to insert: hollande,ludovine: already exists in tree
+Unable to insert: taylor,thomas: already exists in tree
+Unable to insert: nicolas,delphine: already exists in tree
+Unable to insert: roberts,rose: already exists in tree
+Unable to insert: edwards,julian: already exists in tree
+Unable to insert: green,william: already exists in tree
+Unable to insert: morel,gustave: already exists in tree
+Unable to insert: dumont,charlotte: already exists in tree
+Unable to insert: johnson,brian: already exists in tree
+Unable to insert: thomas,virginia: already exists in tree
+Unable to insert: lewis,daniel: already exists in tree
+Unable to insert: smith,marie: already exists in tree
+Unable to insert: mitchell,francis: already exists in tree
+Unable to insert: campbell,jeffrey: already exists in tree
+Unable to insert: thomas,james: already exists in tree
+Unable to insert: turner,helen: already exists in tree
+Unable to insert: durand,martine: already exists in tree
+Unable to insert: turner,charles: already exists in tree
+Unable to insert: nicolas,anne: already exists in tree
+Unable to insert: legrand,simon: already exists in tree
+Unable to insert: durand,jeanine: already exists in tree
+Unable to insert: bertrand,edith: already exists in tree
+Unable to insert: hall,oliver: already exists in tree
+Unable to insert: mercier,alexandre: already exists in tree
+Unable to insert: muller,nicolas: already exists in tree
+Unable to insert: monfort,odile: already exists in tree
+Unable to insert: allen,allison: already exists in tree
+Unable to insert: phillips,donald: already exists in tree
+Unable to insert: allen,francis: already exists in tree
+Unable to insert: radiguet,laura: already exists in tree
+Unable to insert: martin,muriel: already exists in tree
+Unable to insert: turner,vivian: already exists in tree
+Unable to insert: taylor,michael: already exists in tree
+Unable to insert: allen,sandra: already exists in tree
+Unable to insert: lewis,jack: already exists in tree
+Unable to insert: davis,patrick: already exists in tree
+Unable to insert: muller,christine: already exists in tree
+Unable to insert: thompson,christopher: already exists in tree
+Unable to insert: young,louise: already exists in tree
+Unable to insert: lewis,janet jason: already exists in tree
+Unable to insert: moreau,jean-marie: already exists in tree
+Unable to insert: clark,winston: already exists in tree
+Unable to insert: bertrand,suzanne: already exists in tree
+Unable to insert: fournier,lucille: already exists in tree
+Unable to insert: michel,sandrine: already exists in tree
+Unable to insert: thomas,danny: already exists in tree
+Unable to insert: charbonnier,yves: already exists in tree
+Unable to insert: young,wendy: already exists in tree
+Unable to insert: young,christopher: already exists in tree
+Unable to insert: clement,jeanine: already exists in tree
+Unable to insert: collins,michelle: already exists in tree
+Unable to insert: roberts,francis: already exists in tree
+Unable to insert: mitchell,william: already exists in tree
+Unable to insert: edwards,danny: already exists in tree
+Unable to insert: smith,christopher: already exists in tree
+Unable to insert: vincent,virginie: already exists in tree
+Unable to insert: allen,anna: already exists in tree
+Unable to insert: davis,alan: already exists in tree
+Unable to insert: walker,sandra: already exists in tree
+Unable to insert: turner,betty: already exists in tree
+Unable to insert: collins,janet jason: already exists in tree
+Unable to insert: monfort,nicolas: already exists in tree
+Unable to insert: harris,philip: already exists in tree
+Unable to insert: adams,frances: already exists in tree
+Unable to insert: wright,allison: already exists in tree
+Unable to insert: green,donald: already exists in tree
+Unable to insert: robinson,sylvia: already exists in tree
+Unable to insert: williams,jonathan: already exists in tree
+Unable to insert: roberts,eric: already exists in tree
+Unable to insert: chevalier,rodolpheroger: already exists in tree
+Unable to insert: gauthier,edgar: already exists in tree
+Unable to insert: duval,charles: already exists in tree
+Unable to insert: martin,kenneth: already exists in tree
+Unable to insert: bonnet,victor: already exists in tree
+Unable to insert: carter,george: already exists in tree
+Unable to insert: wright,roger: already exists in tree
+Unable to insert: petit,antoine: already exists in tree
+Unable to insert: nelson,barbara: already exists in tree
+Unable to insert: vincent,ernest: already exists in tree
+Unable to insert: hollande,solange: already exists in tree
+Unable to insert: taylor,dorothy: already exists in tree
+Unable to insert: thompson,charles: already exists in tree
+Unable to insert: thomas,winston: already exists in tree
+Unable to insert: wright,alan: already exists in tree
+Unable to insert: philipot,albert: already exists in tree
+Unable to insert: green,brian: already exists in tree
+Unable to insert: dubois,marion: already exists in tree
+Unable to insert: carter,albert: already exists in tree
+Unable to insert: scott,roger: already exists in tree
+Unable to insert: thomas,thomas: already exists in tree
+Unable to insert: roux,bertrand: already exists in tree
+Unable to insert: green,laura: already exists in tree
+Unable to insert: white,victoria: already exists in tree
+Unable to insert: taylor,edward: already exists in tree
+Unable to insert: dulac,elisabeth: already exists in tree
+Unable to insert: henry,josette: already exists in tree
+Unable to insert: bernard,sabine: already exists in tree
+Unable to insert: michel,emilie: already exists in tree
+Unable to insert: evans,gregory: already exists in tree
+Unable to insert: muller,christine: already exists in tree
+Unable to insert: kergezec,odile: already exists in tree
+Unable to update: poisson,evariste: does not exist in tree
+
+***** SNAPSHOT *****
+Number of elements: 2641
+Number of blocks used: 661
+Depth of tree: 4
+Node Keys: 
+
+collins,nancy    <-> roussel,sophie  
+	allen,julia      <-> clark,steven    
+		adams,dorothy    <-> allen,gary      
+			adams,alan       <-> adams,donald    
+			adams,dorothy    <-> adams,jack      
+			adams,james      <-> adams,joseph    
+			adams,kenneth    <-> adams,nancy     
+			adams,paul       <-> allen,alan      
+			allen,allison    <-> allen,donald    
+			allen,edgar      <-> allen,francis   
+			allen,gary       <-> allen,joseph    
+		allen,sharon     <-> baker,mary      
+			allen,julia      <-> allen,sandra    
+			allen,sharon     <-> anderson,donald 
+			anderson,donna   <-> anderson,julian 
+			anderson,laura   <-> anderson,thomas 
+			anderson,victoria <-> baker,gregory   
+			baker,helen      <-> baker,martin    
+			baker,mary       <-> baker,sharon    
+		baudoux,cyrille  <-> beaufort,alice  
+			baker,steven     <-> baudoux,christian
+			baudoux,cyrille  <-> baudoux,ginette 
+			baudoux,henri    <-> baudoux,monique 
+			baudoux,odile    <-> baudoux,yvonne  
+			beaufort,alice   <-> beaufort,ginette
+		beaufort,olivier <-> bernard,xavier  
+			beaufort,ludovic <-> beaufort,monique
+			beaufort,olivier <-> bernard,chantal 
+			bernard,christine <-> bernard,emmanuel
+			bernard,ernest   <-> bernard,odile   
+			bernard,pascale  <-> bernard,virginie
+			bernard,xavier   <-> berthier,francis
+		berthier,martine <-> blanc,etienne   
+			berthier,georges <-> berthier,marie  
+			berthier,martine <-> bertrand,bernard
+			bertrand,edith   <-> bertrand,marc   
+			bertrand,michel  <-> bertrand,thomas 
+			bertrand,yvonne  <-> blanc,alphonse  
+			blanc,chantal    <-> blanc,ernest    
+			blanc,etienne    <-> blanc,sandrine  
+		bonnet,alain     <-> brown,kenneth   
+			blanc,marcelle   <-> blanc,yves      
+			bonnet,alain     <-> bonnet,daniel   
+			bonnet,etienne   <-> bonnet,marc     
+			bonnet,martin    <-> bonnet,sabine   
+			bonnet,samuel    <-> brown,charles   
+			brown,christopher <-> brown,jack      
+			brown,james      <-> brown,john      
+			brown,kenneth    <-> brown,susan     
+		brune,henriette  <-> carter,barbara  
+			brown,virginia   <-> brune,gustave   
+			brune,henriette  <-> brune,patricia  
+			brune,robert     <-> campbell,allison
+			campbell,bernard <-> campbell,harold 
+			campbell,jack    <-> campbell,lucille
+			campbell,marie   <-> campbell,sylvia 
+			campbell,virginia <-> carter,andrew   
+			carter,barbara   <-> carter,gary     
+		carter,linda     <-> charbonnier,sandrine
+			carter,george    <-> carter,laura    
+			carter,linda     <-> carter,rebecca  
+			carter,rose      <-> carter,sylvia   
+			carter,victor    <-> carter,winston  
+			champfort,alexandre <-> champfort,catherine
+			champfort,charlotte <-> champfort,josette
+			champfort,luc    <-> charbonnier,antoine
+			charbonnier,brigitte <-> charbonnier,gustave
+			charbonnier,isabelle <-> charbonnier,nicolas
+			charbonnier,sandrine <-> chevalier,alphonse
+		chevalier,fabienne <-> clark,julia     
+			chevalier,antoinette <-> chevalier,etienne
+			chevalier,fabienne <-> chevalier,marie 
+			chevalier,martine <-> chevalier,victor
+			clark,albert     <-> clark,dorothy   
+			clark,edgar      <-> clark,joseph    
+			clark,julia      <-> clark,ruth      
+		clark,wendy      <-> collins,joseph  
+			clark,steven     <-> clark,walter    
+			clark,wendy      <-> clement,francis 
+			clement,jacqueline <-> clement,philippe
+			clement,serge    <-> clement,yvonne  
+			collins,albert   <-> collins,david   
+			collins,donald   <-> collins,gary    
+			collins,george   <-> collins,jean    
+			collins,joseph   <-> collins,michelle
+	delvaux,simone   <-> escudier,samuel 
+		david,alexandre  <-> delvaux,gilles  
+			collins,nancy    <-> collins,william 
+			david,alexandre  <-> david,emilie    
+			david,florence   <-> david,marcel    
+			david,monique    <-> david,simone    
+			david,suzanne    <-> davis,charlotte 
+			davis,cynthia    <-> davis,james     
+			davis,joseph     <-> davis,mary      
+			davis,pamela     <-> davis,sharon    
+			davis,sylvia     <-> delvaux,ernest  
+			delvaux,gilles   <-> delvaux,olivier 
+		dubois,didier    <-> dumont,victor   
+			delvaux,simone   <-> dubois,charles  
+			dubois,didier    <-> dubois,marc     
+			dubois,marion    <-> dubois,victor   
+			dubois,yves      <-> dulac,monique   
+			dulac,nadia      <-> dulac,yvonne    
+			dumont,alain     <-> dumont,lise     
+			dumont,louise    <-> dumont,thomas   
+			dumont,victor    <-> dupont,jeanine  
+		dupont,sylvie    <-> duval,daniel    
+			dupont,louis     <-> dupont,samuel   
+			dupont,sylvie    <-> durand,jean-luc 
+			durand,jeanine   <-> durand,simon    
+			durand,solange   <-> duval,christine 
+			duval,daniel     <-> duval,jeanine   
+		duval,yvette     <-> escudier,fanny  
+			duval,josette    <-> duval,serge     
+			duval,yvette     <-> edwards,brian   
+			edwards,cynthia  <-> edwards,frances 
+			edwards,gary     <-> edwards,jennifer
+			edwards,jessica  <-> edwards,paul    
+			edwards,roger    <-> escudier,eva    
+			escudier,fanny   <-> escudier,michel 
+		evans,anna       <-> fabre,delphine  
+			escudier,samuel  <-> evans,andrew    
+			evans,anna       <-> evans,edward    
+			evans,emily      <-> evans,laura     
+			evans,louise     <-> evans,ruth      
+			evans,sarah      <-> fabre,christine 
+			fabre,delphine   <-> fabre,josette   
+	fournier,nadia   <-> jackson,michelle
+		faure,cyrille    <-> fournier,jean-luc
+			fabre,martine    <-> faure,chantal   
+			faure,cyrille    <-> faure,nadia     
+			faure,nicole     <-> faure,suzanne   
+			faure,virginie   <-> fontaine,dominique
+			fontaine,edouard <-> fontaine,sylvie 
+			fontaine,yves    <-> fournier,antoinette
+			fournier,brigitte <-> fournier,hubert 
+			fournier,jean-luc <-> fournier,martine
+		garnier,alain    <-> girard,suzanne  
+			fournier,nadia   <-> fournier,simone 
+			garnier,alain    <-> garnier,christian
+			garnier,didier   <-> garnier,virginie
+			gauthier,alain   <-> gauthier,christian
+			gauthier,edgar   <-> gauthier,lucille
+			gauthier,marion  <-> girard,alain    
+			girard,charles   <-> girard,julie    
+			girard,louise    <-> girard,robert   
+			girard,suzanne   <-> green,andrew    
+		green,harold     <-> hall,roger      
+			green,betty      <-> green,gregory   
+			green,harold     <-> green,martin    
+			green,mary       <-> green,thomas    
+			green,vivian     <-> guerin,gilles   
+			guerin,henri     <-> guerin,marie    
+			guerin,michel    <-> guerin,thomas   
+			guerin,xavier    <-> hall,frances    
+			hall,gary        <-> hall,karen      
+			hall,laura       <-> hall,philip     
+			hall,roger       <-> harris,carol    
+		harris,laura     <-> henry,delphine  
+			harris,charlotte <-> harris,julia    
+			harris,laura     <-> harris,marion   
+			harris,philip    <-> harris,susan    
+			harris,thomas    <-> henry,daniel    
+			henry,delphine   <-> henry,esther    
+		henry,samuel     <-> hill,ruth       
+			henry,guillaume  <-> henry,raoul     
+			henry,samuel     <-> hill,anna       
+			hill,bernard     <-> hill,david      
+			hill,dennis      <-> hill,frances    
+			hill,george      <-> hill,jennifer   
+			hill,julia       <-> hill,roger      
+			hill,ruth        <-> hill,virginia   
+		hollande,edith   <-> jackson,david   
+			hill,vivian      <-> hollande,edgar  
+			hollande,edith   <-> hollande,jean-charles
+			hollande,joseph  <-> hollande,marcel 
+			hollande,marie   <-> jackson,alexander
+			jackson,bernard  <-> jackson,daniel  
+			jackson,david    <-> jackson,mark    
+		jackson,victor   <-> jones,henry     
+			jackson,michelle <-> jackson,theodore
+			jackson,victor   <-> johnson,andrew  
+			johnson,barbara  <-> johnson,gary    
+			johnson,harold   <-> johnson,louise  
+			johnson,pamela   <-> johnson,sarah   
+			johnson,theodore <-> jones,elizabeth 
+			jones,emily      <-> jones,harold    
+			jones,henry      <-> jones,michael   
+	king,michael     <-> martin,gerald   
+		jones,paul       <-> king,helen      
+			jackson,janet jason <-> jones,donna     
+			jones,paul       <-> kergezec,alphonse
+			kergezec,bertrand <-> kergezec,joseph 
+			kergezec,lise    <-> kergezec,philippe
+			kergezec,sabine  <-> king,alexander  
+			king,carol       <-> king,francis    
+			king,helen       <-> king,mary       
+		king,winston     <-> langlais,bernard
+			king,michael     <-> king,virginia   
+			king,winston     <-> lallemand,edith 
+			lallemand,fabienne <-> lallemand,monique
+			lallemand,muriel <-> lallemand,sandrine
+			lallemand,thomas <-> lambert,edith   
+			lambert,emmanuel <-> lambert,ludovic 
+			lambert,monique  <-> langlais,barbara
+			langlais,bernard <-> langlais,francine
+		langlais,nicole  <-> laval,roland    
+			langlais,gilles  <-> langlais,marcelle
+			langlais,nicole  <-> laurent,bertrand
+			laurent,daniel   <-> laurent,ginette 
+			laurent,henri    <-> laurent,ludovic 
+			laurent,ludovine <-> laval,jacques   
+			laval,lise       <-> laval,rodolpheroger
+			laval,roland     <-> lee,andrew      
+		lee,edward       <-> lefevre,nicole  
+			lee,brenda       <-> lee,dorothy     
+			lee,edward       <-> lee,kenneth     
+			lee,laura        <-> lee,ryan        
+			lee,samuel       <-> lefebvre,alix   
+			lefebvre,anne    <-> lefebvre,jeanine
+			lefebvre,julie   <-> lefebvre,sophie 
+			lefevre,antoinette <-> lefevre,francine
+			lefevre,gilles   <-> lefevre,michel  
+			lefevre,nicole   <-> lefevre,virginie
+		legrand,francine <-> lewis,wendy     
+			lefevre,yves     <-> legrand,didier  
+			legrand,francine <-> legrand,simon   
+			legrand,simone   <-> leroy,jean-charles
+			leroy,jeanine    <-> leroy,sylvie    
+			leroy,thomas     <-> lewis,daniel    
+			lewis,donald     <-> lewis,jean      
+			lewis,john       <-> lewis,martin    
+			lewis,michelle   <-> lewis,vivian    
+			lewis,wendy      <-> martin,gary     
+		martin,gerald    <-> martin,patrick  
+			martin,brigitte  <-> martin,george   
+			martin,gerald    <-> martin,josette  
+			martin,kenneth   <-> martin,ludovine 
+			martin,margaret  <-> martin,nicolas  
+			martin,odile     <-> martin,pascale  
+			martin,patrick   <-> martin,simone   
+	michaud,raoul    <-> nicolas,ginette 
+		martin,walter    <-> michaud,cyrille 
+			martin,steven    <-> martin,virginia 
+			martin,walter    <-> mathieu,emilie  
+			mathieu,florence <-> mathieu,marcelle
+			mathieu,sandrine <-> mathieu,yvonne  
+			mercier,alexandre <-> mercier,henri   
+			mercier,laura    <-> michaud,brigitte
+			michaud,cyrille  <-> michaud,pascale 
+		michel,alix      <-> michel,paul     
+			michaud,raoul    <-> michaud,viviane 
+			michel,alix      <-> michel,elisabeth
+			michel,emilie    <-> michel,georges  
+			michel,ginette   <-> michel,pascale  
+			michel,paul      <-> miller,bernard  
+		miller,frances   <-> mitchell,emily  
+			miller,brian     <-> miller,eric     
+			miller,frances   <-> miller,janet jason
+			miller,jennifer  <-> miller,ryan     
+			miller,samuel    <-> mitchell,cynthia
+			mitchell,dennis  <-> mitchell,elizabeth
+			mitchell,emily   <-> mitchell,helen  
+		mitchell,louis   <-> moore,martin    
+			mitchell,jean    <-> mitchell,linda  
+			mitchell,louis   <-> mitchell,victor 
+			mitchell,vivian  <-> monfort,alexandre
+			monfort,catherine <-> monfort,ginette 
+			monfort,guillaume <-> monfort,patricia
+			monfort,sandrine <-> moore,alexander 
+			moore,allison    <-> moore,eric      
+			moore,frances    <-> moore,laura     
+			moore,martin     <-> moore,theodore  
+		moreau,antoine   <-> morel,alain     
+			moore,virginia   <-> moreau,albert   
+			moreau,antoine   <-> moreau,ernest   
+			moreau,etienne   <-> moreau,joseph   
+			moreau,luc       <-> moreau,viviane  
+			morel,alain      <-> morel,emilie    
+		morel,patricia   <-> mortier,robert  
+			morel,gustave    <-> morel,pascale   
+			morel,patricia   <-> morel,thomas    
+			morel,victor     <-> morin,edith     
+			morin,edouard    <-> morin,philippe  
+			morin,samuel     <-> mortier,jean-charles
+			mortier,joseph   <-> mortier,philippe
+			mortier,robert   <-> muller,eva      
+		muller,pascale   <-> nelson,jonathan 
+			muller,florence  <-> muller,nicolas  
+			muller,pascale   <-> nelson,alan     
+			nelson,alice     <-> nelson,cynthia  
+			nelson,dennis    <-> nelson,harold   
+			nelson,henry     <-> nelson,jessica  
+			nelson,jonathan  <-> nelson,nancy    
+		nelson,scott     <-> nicolas,albert  
+			nelson,paul      <-> nelson,sarah    
+			nelson,scott     <-> nelson,vivian   
+			nelson,wendy     <-> neveu,gilles    
+			neveu,ginette    <-> neveu,louis     
+			neveu,marcel     <-> neveu,yves      
+			nicolas,albert   <-> nicolas,francis 
+		nicolas,nicolas  <-> petit,antoine   
+			nicolas,ginette  <-> nicolas,mireille
+			nicolas,nicolas  <-> oudinot,antoinette
+			oudinot,barbara  <-> oudinot,paul    
+			oudinot,sabine   <-> parker,brian    
+			parker,carol     <-> parker,joseph   
+			parker,lucille   <-> parker,steven   
+			parker,susan     <-> perrin,christine
+			perrin,dominique <-> perrin,sylvie   
+			perrin,viviane   <-> petit,alphonse  
+			petit,antoine    <-> petit,cyrille   
+	phillips,david   <-> robinson,emily  
+		petit,gilles     <-> phillips,alice  
+			petit,daniel     <-> petit,francis   
+			petit,gilles     <-> petit,marc      
+			petit,martine    <-> petit,samuel    
+			petit,simone     <-> philipot,caroline
+			philipot,delphine <-> philipot,marie  
+			philipot,monique <-> philipot,robert 
+			philipot,rodolpheroger <-> phillips,alexander
+			phillips,alice   <-> phillips,danny  
+		phillips,eric    <-> radiguet,emmanuel
+			phillips,david   <-> phillips,elizabeth
+			phillips,eric    <-> phillips,james  
+			phillips,jeffrey <-> phillips,sharon 
+			phillips,theodore <-> picard,brigitte 
+			picard,charlotte <-> picard,henri    
+			picard,isabelle  <-> picard,rose     
+			picard,sandrine  <-> pourbaix,louis  
+			pourbaix,louise  <-> radiguet,alexandre
+			radiguet,alphonse <-> radiguet,emile  
+			radiguet,emmanuel <-> radiguet,odile  
+		richard,daniel   <-> robert,virginie 
+			radiguet,rodolpheroger <-> richard,antoine 
+			richard,daniel   <-> richard,jeanine 
+			richard,laura    <-> richard,odile   
+			richard,raoul    <-> robert,alphonse 
+			robert,bernard   <-> robert,ludovine 
+			robert,mireille  <-> robert,suzanne  
+			robert,virginie  <-> roberts,david   
+		roberts,helen    <-> robin,nicole    
+			roberts,donna    <-> roberts,gina    
+			roberts,helen    <-> roberts,marion  
+			roberts,martin   <-> roberts,rose    
+			roberts,ryan     <-> roberts,theodore
+			roberts,thomas   <-> robin,francine  
+			robin,josette    <-> robin,monique   
+			robin,nicole     <-> robinson,dorothy
+		robinson,john    <-> roussel,marc    
+			robinson,emily   <-> robinson,jean   
+			robinson,john    <-> robinson,sandra 
+			robinson,sarah   <-> rousseau,dominique
+			rousseau,edgar   <-> rousseau,nadia  
+			rousseau,nicolas <-> roussel,christian
+			roussel,christine <-> roussel,lambert 
+			roussel,marc     <-> roussel,serge   
+	scott,george     <-> wilson,scott    
+		roux,edgar       <-> scott,david     
+			roussel,sophie   <-> roux,daniel     
+			roux,edgar       <-> roux,monique    
+			roux,olivier     <-> roux,simone     
+			roux,sylvie      <-> scott,christopher
+			scott,david      <-> scott,eric      
+		scott,laura      <-> simon,lucille   
+			scott,george     <-> scott,joseph    
+			scott,laura      <-> scott,mark      
+			scott,oliver     <-> scott,winston   
+			simon,albert     <-> simon,emmanuel  
+			simon,florence   <-> simon,laura     
+			simon,lucille    <-> simon,philippe  
+		smith,allison    <-> smith,victoria  
+			simon,rose       <-> smith,alice     
+			smith,allison    <-> smith,george    
+			smith,gerald     <-> smith,marion    
+			smith,mark       <-> smith,victor    
+			smith,victoria   <-> taylor,elizabeth
+		taylor,linda     <-> thomas,elizabeth
+			taylor,gary      <-> taylor,kenneth  
+			taylor,linda     <-> taylor,patrick  
+			taylor,ronald    <-> taylor,thomas   
+			taylor,virginia  <-> thomas,betty    
+			thomas,brian     <-> thomas,elisabeth
+			thomas,elizabeth <-> thomas,isabelle 
+		thomas,kenneth   <-> thompson,jack   
+			thomas,jack      <-> thomas,joseph   
+			thomas,kenneth   <-> thomas,philippe 
+			thomas,ronald    <-> thomas,william  
+			thomas,winston   <-> thompson,charlotte
+			thompson,christopher <-> thompson,henry  
+			thompson,jack    <-> thompson,paul   
+		toussaint,fanny  <-> turner,sharon   
+			thompson,roger   <-> toussaint,edith 
+			toussaint,fanny  <-> toussaint,lucille
+			toussaint,ludovine <-> turner,alexander
+			turner,andrew    <-> turner,daniel   
+			turner,danny     <-> turner,helen    
+			turner,james     <-> turner,linda    
+			turner,margaret  <-> turner,sandra   
+			turner,sharon    <-> verbois,bernard 
+		verbois,jacqueline <-> walker,jessica  
+			verbois,brigitte <-> verbois,guy     
+			verbois,jacqueline <-> verbois,victor  
+			verbois,yves     <-> vincent,francine
+			vincent,francis  <-> vincent,monique 
+			vincent,muriel   <-> vincent,yvonne  
+			walker,alice     <-> walker,donna    
+			walker,edgar     <-> walker,jeffrey  
+			walker,jessica   <-> walker,louis    
+		walker,steven    <-> williams,gerald 
+			walker,marion    <-> walker,sharon   
+			walker,steven    <-> walker,vivian   
+			white,alan       <-> white,danny     
+			white,donna      <-> white,jack      
+			white,jean       <-> white,oliver    
+			white,pamela     <-> williams,alan   
+			williams,anna    <-> williams,frances
+			williams,gerald  <-> williams,jeffrey
+		williams,mary    <-> wilson,lucille  
+			williams,jessica <-> williams,martin 
+			williams,mary    <-> williams,samuel 
+			williams,sharon  <-> wilson,andrew   
+			wilson,anna      <-> wilson,david    
+			wilson,dennis    <-> wilson,gina     
+			wilson,gregory   <-> wilson,louis    
+			wilson,lucille   <-> wilson,sandra   
+		wright,andrew    <-> young,margaret  
+			wilson,scott     <-> wright,allison  
+			wright,andrew    <-> wright,emily    
+			wright,frances   <-> wright,julia    
+			wright,linda     <-> wright,sylvia   
+			wright,virginia  <-> young,betty     
+			young,brian      <-> young,donna     
+			young,emily      <-> young,louise    
+			young,margaret   <-> young,wendy     
+
+***** SNAPSHOT *****

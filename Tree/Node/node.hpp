@@ -29,6 +29,7 @@ public:
 
     virtual std::shared_ptr<node<K, V>> findNode(const K key) = 0;
     virtual unsigned int findIndex(const K key) = 0;
+	virtual unsigned int getDepth(unsigned int depth) = 0;
     virtual nodeType getType() = 0;
 
     virtual std::unique_ptr<split<K, V>> insert(const K key, const V value) = 0;
@@ -38,7 +39,6 @@ public:
     virtual bool remove(const K key) = 0;
 
     virtual ~node() { }
-
 
     unsigned int numberOfKeys;
     std::array<K, DEFAULT_DEGREE> keys;

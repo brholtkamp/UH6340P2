@@ -5,7 +5,11 @@
 #ifndef PROJECT_2_TREE_HPP
 #define PROJECT_2_TREE_HPP
 
+const unsigned int OUTPUT_WIDTH = 16;
+
 #include <memory>
+#include <fstream>
+#include <iomanip>
 
 #include "Node/node.hpp"
 #include "Node/internalNode.hpp"
@@ -23,10 +27,14 @@ public:
     bool update(const K key, const V value);
     bool remove(const K key);
 
-    ~tree() { };
+	inline unsigned int getSize() { return size; }
+	inline unsigned int getDepth() { return this->rootNode->getDepth(0); }
+
+    ~tree() { }
 
 private:
     int degree;
+	unsigned int size = 0;
     std::shared_ptr<node<K, V>> rootNode;
 };
 
@@ -34,12 +42,14 @@ template <typename K, typename V>
 bool tree<K, V>::insert(const K key, const V value) {
     // Check to make sure this is a unique key
     if (this->exists(key)) {
-		std::cerr << "Unable to insert: " << key << ": already exists in tree" << std::endl;
         return false;
     }
 
     // Insert into the tree and record the result
     auto results = this->rootNode->insert(key, value);
+
+	// Increment our number of inserted items
+	this->size++;
 
     // If we don't receive nullptr, we split and it propagated up to the root
     if (results != nullptr) {
@@ -56,11 +66,13 @@ bool tree<K, V>::insert(const K key, const V value) {
 
 template <typename K, typename V>
 std::shared_ptr<V> tree<K, V>::search(const K key) {
-    auto node = this->rootNode->search(key);
-	if (node != nullptr) {
-		std::shared_ptr<V> result = std::make_shared<V>(std::dynamic_pointer_cast<leafNode<K, V>>(node)->values[node->findIndex(key)]);
-		if (result != nullptr) {
-			return result;
+	if (this->exists(key)) {
+		auto node = this->rootNode->search(key);
+		if (node != nullptr) {
+			std::shared_ptr<V> result = std::make_shared<V>(std::dynamic_pointer_cast<leafNode<K, V>>(node)->values[node->findIndex(key)]);
+			if (result != nullptr) {
+				return result;
+			}
 		}
 	}
 
@@ -80,30 +92,13 @@ bool tree<K, V>::exists(const K key) {
 
 template <typename K, typename V>
 void tree<K, V>::list() {
-    std::cout << "Tree Structure: " << std::endl;
     this->rootNode->list(0);
-
-    std::cout << std::endl << "Leaf Structure: " << std::endl;
-    auto node = this->rootNode;
-    while (node->getType() != LEAF) {
-        node = std::dynamic_pointer_cast<internalNode<K, V>>(node)->children[0];
-    }
-    
-    unsigned int total = 0;
-    while (node != nullptr) {
-        for (unsigned int i = 0; i < node->numberOfKeys; i++) {
-            std::cout << node->keys[i] << " ";
-            total++;
-        }
-        node = std::dynamic_pointer_cast<leafNode<K, V>>(node)->nextLeaf;
-    }
-    std::cout << std::endl << "Total: " << total << std::endl;
 }
 
 template <typename K, typename V>
 bool tree<K, V>::update(const K key, const V value) {
 	if (!this->exists(key)) {
-		std::cerr << "Unable to update: " << key << ": does not exist in tree" << std::endl;
+		return false;
 	}
 
     return this->rootNode->update(key, value);
@@ -112,8 +107,13 @@ bool tree<K, V>::update(const K key, const V value) {
 template <typename K, typename V>
 bool tree<K, V>::remove(const K key) {
 	if (!this->exists(key)) {
-		std::cerr << "Unable to delete: " << key << ": does not exist in tree" << std::endl;
+		return false;
 	}
+
+	// Decrement our size
+	size--;
+
+	// Return the result of the removal
     return this->rootNode->remove(key);
 }
 
