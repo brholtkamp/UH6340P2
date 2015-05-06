@@ -6,6 +6,7 @@
 #include <algorithm>
 
 #include "node.hpp"
+#include "leafNode.hpp"
 
 template <typename K, typename V>
 class internalNode : public node<K, V> {
