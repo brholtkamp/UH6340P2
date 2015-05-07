@@ -9,7 +9,7 @@
 * C++ 11 support
 
 ### Usage
-
+    make
     ./project2 test.txt
 
 ### Overview
