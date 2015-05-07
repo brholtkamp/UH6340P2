@@ -4,17 +4,17 @@
 #include <array>
 #include <memory>
 
-#include "../tree.hpp"
+#include "tree.hpp"
 
 enum nodeType {
     INTERNAL,
     LEAF
 };
 
-template <typename K, typename V>
+template<typename K, typename V>
 class node;
 
-template <typename K, typename V>
+template<typename K, typename V>
 class split {
 public:
     K key;
@@ -22,21 +22,21 @@ public:
     std::shared_ptr<node<K, V>> right;
 };
 
-template <typename K, typename V>
+template<typename K, typename V>
 class node : public std::enable_shared_from_this<node<K, V>> {
 public:
     node() : numberOfKeys(0) { }
 
-    virtual std::shared_ptr<node<K, V>> findNode(const K key) = 0;
-    virtual unsigned int findIndex(const K key) = 0;
-	virtual unsigned int getDepth(unsigned int depth) = 0;
-    virtual nodeType getType() = 0;
-
     virtual std::unique_ptr<split<K, V>> insert(const K key, const V value) = 0;
     virtual std::shared_ptr<node<K, V>> search(const K key) = 0;
-	virtual void snapshot(unsigned int depth) = 0;
+    virtual void snapshot(unsigned int depth) = 0;
     virtual bool update(const K key, const V value) = 0;
     virtual bool remove(const K key) = 0;
+
+    virtual std::shared_ptr<node<K, V>> findNode(const K key) = 0;
+    virtual unsigned int findIndex(const K key) = 0;
+    virtual unsigned int getDepth(unsigned int depth) = 0;
+    virtual nodeType getType() = 0;
 
     virtual ~node() { }
 

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5F782A31-BED4-4679-91A7-8F1C91F4AEF4}</ProjectGuid>
+    <ProjectGuid>{600F8AD1-8870-4826-B37F-6527ADDD51FF}</ProjectGuid>
     <RootNamespace>Project2</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -41,16 +41,12 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <HeapReserveSize>15728640</HeapReserveSize>
-      <HeapCommitSize>
-      </HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -68,16 +64,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="studentRecord.hpp" />
-    <ClInclude Include="Tree\Node\internalNode.hpp" />
-    <ClInclude Include="Tree\Node\leafNode.hpp" />
-    <ClInclude Include="Tree\Node\node.hpp" />
-    <ClInclude Include="Tree\tree.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="studentRecord.hpp" />
+    <ClInclude Include="Tree\internalNode.hpp" />
+    <ClInclude Include="Tree\leafNode.hpp" />
+    <ClInclude Include="Tree\node.hpp" />
+    <ClInclude Include="Tree\tree.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="out.txt" />
     <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

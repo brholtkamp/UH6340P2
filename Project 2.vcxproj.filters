@@ -14,28 +14,8 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Source Files\Tree">
-      <UniqueIdentifier>{20878da8-7418-4c83-a320-aace88d9b2f1}</UniqueIdentifier>
+      <UniqueIdentifier>{440a81fd-d0ac-4fe4-9e88-31d533df904c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Tree\Node">
-      <UniqueIdentifier>{be43da0e-76ff-42a1-ac37-e091ba4d463d}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Tree\tree.hpp">
-      <Filter>Source Files\Tree</Filter>
-    </ClInclude>
-    <ClInclude Include="Tree\Node\node.hpp">
-      <Filter>Source Files\Tree\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="Tree\Node\leafNode.hpp">
-      <Filter>Source Files\Tree\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="Tree\Node\internalNode.hpp">
-      <Filter>Source Files\Tree\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="studentRecord.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,6 +23,26 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="studentRecord.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\internalNode.hpp">
+      <Filter>Source Files\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\leafNode.hpp">
+      <Filter>Source Files\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\node.hpp">
+      <Filter>Source Files\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\tree.hpp">
+      <Filter>Source Files\Tree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="out.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
     <Text Include="test.txt">
       <Filter>Resource Files</Filter>
     </Text>

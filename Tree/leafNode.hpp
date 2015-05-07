@@ -1,3 +1,7 @@
+//
+// Created by Brian on 4/15/2015.
+//
+
 #ifndef PROJECT_2_LEAFNODE_HPP
 #define PROJECT_2_LEAFNODE_HPP
 
@@ -5,21 +9,19 @@
 #include <memory>
 #include <algorithm>
 
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include "tree.hpp"
 #include "node.hpp"
 
-#if FILEOUTPUT
-#include "../../studentRecord.hpp"
-#endif
+extern std::ofstream outputFile;
 
-template <typename K, typename V>
-class leafNode : public node < K, V > {
+template<typename K, typename V>
+class leafNode : public node<K, V> {
 public:
     leafNode() : node<K, V>(), nextLeaf(nullptr) { }
-
-    std::shared_ptr<node<K, V>> findNode(const K key) override;
-	unsigned int findIndex(const K key) override;
-	unsigned int getDepth(unsigned int depth) override { return depth + 1; }
-    nodeType getType() override { return LEAF; }
 
     std::unique_ptr<split<K, V>> insert(const K key, const V value) override;
     std::shared_ptr<node<K, V>> search(const K key) override;
@@ -27,28 +29,33 @@ public:
     bool update(const K key, const V value) override;
     bool remove(const K key) override;
 
+    std::shared_ptr<node<K, V>> findNode(const K key) override;
+    unsigned int findIndex(const K key) override;
+    unsigned int getDepth(unsigned int depth) override { return depth + 1; }
+    nodeType getType() override { return LEAF; }
+
     std::array<V, DEFAULT_DEGREE> values;
     std::shared_ptr<leafNode<K, V>> nextLeaf;
 };
 
-template <typename K, typename V>
+template<typename K, typename V>
 std::shared_ptr<node<K, V>> leafNode<K, V>::findNode(const K key) {
     // If this is reached, this is the most applicable child
     return this->shared_from_this();
 }
 
-template <typename K, typename V>
+template<typename K, typename V>
 unsigned int leafNode<K, V>::findIndex(const K key) {
-	unsigned int i = 0;
+    unsigned int i = 0;
 
-	while (i < this->numberOfKeys && this->keys[i] < key) {
-		i++;
-	}
+    while (i < this->numberOfKeys && this->keys[i] < key) {
+        i++;
+    }
 
-	return i;
+    return i;
 }
 
-template <typename K, typename V>
+template<typename K, typename V>
 std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) {
     // Find the proper index for this key
     unsigned int index = this->findIndex(key);
@@ -60,7 +67,7 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
 
         // Create a new leaf
         auto newLeaf = std::make_shared<leafNode<K, V>>();
-		newLeaf->numberOfKeys = this->numberOfKeys - middleIndex;
+        newLeaf->numberOfKeys = this->numberOfKeys - middleIndex;
 
         // Copy in the values from the right half of this node
         for (unsigned int i = 0; i < middleIndex; i++) {
@@ -79,7 +86,7 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
         }
 
         // String together the leaves
-		newLeaf->nextLeaf = this->nextLeaf;
+        newLeaf->nextLeaf = this->nextLeaf;
         this->nextLeaf = newLeaf;
 
         // Create the split struct to send back the new configuration
@@ -87,7 +94,7 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
         splitResult->key = newLeaf->keys[0];
         splitResult->left = this->shared_from_this();
         splitResult->right = newLeaf;
-        
+
         return splitResult;
     }
     else {
@@ -113,46 +120,50 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
     }
 }
 
-template <typename K, typename V>
+template<typename K, typename V>
 std::shared_ptr<node<K, V>> leafNode<K, V>::search(const K key) {
     return this->shared_from_this();
 }
 
-template <typename K, typename V>
+template<typename K, typename V>
 void leafNode<K, V>::snapshot(unsigned int depth) {
     std::string buffer;
     for (unsigned int i = 0; i < depth; i++) {
         buffer += "\t";
     }
-#if FILEOUTPUT
-	if (this->numberOfKeys > 1) {
-		output << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
-	} else {
-		output << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[0] << std::endl;
-	}
+#if FILE_OUTPUT
+    if (this->numberOfKeys > 1) {
+        outputFile << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " <<
+        std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+    } else {
+        outputFile << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " <<
+        std::setw(OUTPUT_WIDTH) << this->keys[0] << std::endl;
+    }
 #endif
-	if (this->numberOfKeys > 1) {
-		std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
-	} else {
-		std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[0] << std::endl;
-	}
+    if (this->numberOfKeys > 1) {
+        std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " <<
+        std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+    } else {
+        std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " <<
+        std::setw(OUTPUT_WIDTH) << this->keys[0] << std::endl;
+    }
 }
 
-template <typename K, typename V>
+template<typename K, typename V>
 bool leafNode<K, V>::update(const K key, const V value) {
-	unsigned int index = this->findIndex(key);
-	// Check for out of bounds
-	if (index < DEFAULT_DEGREE) {
-		if (this->keys[index] == key) {
-			this->values[index] = value;
-			return true;
-		}
-	}
+    unsigned int index = this->findIndex(key);
+    // Check for out of bounds
+    if (index < DEFAULT_DEGREE) {
+        if (this->keys[index] == key) {
+            this->values[index] = value;
+            return true;
+        }
+    }
 
     return false;
 }
 
-template <typename K, typename V>
+template<typename K, typename V>
 bool leafNode<K, V>::remove(const K key) {
     unsigned int index = this->findIndex(key);
     if (this->keys[index] == key) {
