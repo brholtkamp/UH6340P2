@@ -116,7 +116,7 @@ enum commandType {
 
 class studentRecord {
 public:
-    studentRecord() : blocks(), currentBlock(nullptr), currentStudent(0), currentCommand(SNAPSHOT), studentTree() { }
+    studentRecord() : blocks(), currentBlock(nullptr), currentStudent(0), studentTree() { }
 
     commandType generateCommand(const std::string input);
     bool handleCommand(const commandType command, const std::string key, const std::string value);
@@ -135,8 +135,6 @@ private:
     std::vector<std::shared_ptr<block>> blocks;
     std::shared_ptr<block> currentBlock;
     unsigned int currentStudent = 0;
-
-    commandType currentCommand;
 
     tree<std::string, std::pair<std::shared_ptr<block>, unsigned int>> studentTree;
 };
