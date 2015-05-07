@@ -4,9 +4,8 @@
 
 ### Requirements
 
-* g++
-* make
-* C++ 11 support
+* g++ (used 4.9.2, C++11 support required)
+* make (used 4.1)
 
 ### Usage
     make
