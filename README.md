@@ -12,6 +12,11 @@
 
     ./project2 test.txt
 
+### Overview
+This project consists of a `tree` component that is the modified implementation of a B+ tree with the deletion algorithm changed to only remove nodes upon hitting 0 keys.  The `tree`'s degree can be modified with constants at the top of the file.
+
+The `studentRecord` class handles the block component and can be modified using the constants at the top of the file.
+
 ## Project Information
 
 ###Objective
