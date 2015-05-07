@@ -1,11 +1,25 @@
 # UH6340P2
 
-##Objective
+## Project Description
+
+### Requirements
+
+* g++
+* make
+* C++ 11 support
+
+### Usage
+
+    ./project2 test.txt
+
+## Project Information
+
+###Objective
 This project will give you an opportunity to familiarize
 with the most commonly used data organization, B+
 trees.
 
-##The Problem
+###The Problem
 You are given a list of between 400 and 500 student
 names containing a significant number of duplicates.
 As these names will not be case sensitive Doe, John, \
@@ -48,7 +62,7 @@ merge B+ tree nodes when one or more records they
 point to are deleted. You should wait instead until the
 node is empty then delete it.
 
-##The Input Data
+###The Input Data
 Your input data will consist of a list of record
 specifications separated by keywords as in:
 
