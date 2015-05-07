@@ -17,6 +17,8 @@ This project consists of a `tree` component that is the modified implementation 
 
 The `studentRecord` class handles the block component and can be modified using the constants at the top of the file.
 
+Upon completion of running the scripts, a file `out.txt` will be written into the executable's directory in addition to `std::cout` output of any errors, `SNAPSHOT`s, or `LIST`s that happen to be printed.
+
 ## Project Information
 
 ###Objective
