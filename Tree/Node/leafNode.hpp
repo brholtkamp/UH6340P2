@@ -23,7 +23,7 @@ public:
 
     std::unique_ptr<split<K, V>> insert(const K key, const V value) override;
     std::shared_ptr<node<K, V>> search(const K key) override;
-    void list(unsigned int depth) override;
+    void snapshot(unsigned int depth) override;
     bool update(const K key, const V value) override;
     bool remove(const K key) override;
 
@@ -119,15 +119,23 @@ std::shared_ptr<node<K, V>> leafNode<K, V>::search(const K key) {
 }
 
 template <typename K, typename V>
-void leafNode<K, V>::list(unsigned int depth) {
+void leafNode<K, V>::snapshot(unsigned int depth) {
     std::string buffer;
     for (unsigned int i = 0; i < depth; i++) {
         buffer += "\t";
     }
 #if FILEOUTPUT
-	output << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+	if (this->numberOfKeys > 1) {
+		output << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+	} else {
+		output << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[0] << std::endl;
+	}
 #endif
-	std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+	if (this->numberOfKeys > 1) {
+		std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[this->numberOfKeys - 1] << std::endl;
+	} else {
+		std::cout << buffer << std::left << std::setw(OUTPUT_WIDTH) << this->keys[0] << " <-> " << std::setw(OUTPUT_WIDTH) << this->keys[0] << std::endl;
+	}
 }
 
 template <typename K, typename V>

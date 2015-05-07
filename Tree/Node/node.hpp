@@ -4,7 +4,7 @@
 #include <array>
 #include <memory>
 
-const unsigned int DEFAULT_DEGREE = 10;
+#include "../tree.hpp"
 
 enum nodeType {
     INTERNAL,
@@ -34,7 +34,7 @@ public:
 
     virtual std::unique_ptr<split<K, V>> insert(const K key, const V value) = 0;
     virtual std::shared_ptr<node<K, V>> search(const K key) = 0;
-    virtual void list(unsigned int depth) = 0;
+	virtual void snapshot(unsigned int depth) = 0;
     virtual bool update(const K key, const V value) = 0;
     virtual bool remove(const K key) = 0;
 

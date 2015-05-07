@@ -5,7 +5,10 @@
 #ifndef PROJECT_2_TREE_HPP
 #define PROJECT_2_TREE_HPP
 
+#define LIST_OUTPUT 1
+
 const unsigned int OUTPUT_WIDTH = 16;
+const unsigned int DEFAULT_DEGREE = 10;
 
 #include <memory>
 #include <fstream>
@@ -18,12 +21,13 @@ const unsigned int OUTPUT_WIDTH = 16;
 template<typename K, typename V>
 class tree {
 public:
-    tree() : rootNode(std::make_shared<leafNode<K, V>>()) { }
+    tree() : rootNode(nullptr) { }
 
     bool insert(const K key, const V value);
     std::shared_ptr<V> search(const K key);
     bool exists(const K key);
     void list();
+	void snapshot();
     bool update(const K key, const V value);
     bool remove(const K key);
 
@@ -40,6 +44,11 @@ private:
 
 template <typename K, typename V>
 bool tree<K, V>::insert(const K key, const V value) {
+	// See if we have an empty tree
+	if (this->rootNode == nullptr) {
+		this->rootNode = std::make_shared<leafNode<K, V>>();
+	}
+
     // Check to make sure this is a unique key
     if (this->exists(key)) {
         return false;
@@ -66,7 +75,7 @@ bool tree<K, V>::insert(const K key, const V value) {
 
 template <typename K, typename V>
 std::shared_ptr<V> tree<K, V>::search(const K key) {
-	if (this->exists(key)) {
+	if (this->exists(key) && this->rootNode != nullptr) {
 		auto node = this->rootNode->search(key);
 		if (node != nullptr) {
 			std::shared_ptr<V> result = std::make_shared<V>(std::dynamic_pointer_cast<leafNode<K, V>>(node)->values[node->findIndex(key)]);
@@ -81,40 +90,78 @@ std::shared_ptr<V> tree<K, V>::search(const K key) {
 
 template <typename K, typename V>
 bool tree<K, V>::exists(const K key) {
-    auto results = this->rootNode->search(key);
-    if (results != nullptr) {
-        return std::find(results->keys.begin(), results->keys.end(), key) != results->keys.end();
-    }
-    else {
-        return false;
-    }
+	if (this->rootNode != nullptr) {
+		auto results = this->rootNode->search(key);
+		if (results != nullptr) {
+			return std::find(results->keys.begin(), results->keys.end(), key) != results->keys.end();
+		}
+	}
+
+	return false;
 }
 
 template <typename K, typename V>
 void tree<K, V>::list() {
-    this->rootNode->list(0);
+	if (this->rootNode != nullptr) {
+		auto currentNode = this->rootNode;
+		while (currentNode->getType() != LEAF) {
+			auto currentInternal = std::dynamic_pointer_cast<internalNode<K, V>>(currentNode);
+			currentNode = std::dynamic_pointer_cast<node<K, V>>(currentInternal->children[0]);
+		}
+
+		auto currentLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(currentNode);
+		while (currentLeaf != nullptr) {
+			for (unsigned int i = 0; i < currentLeaf->numberOfKeys; i++) {
+#if FILEOUTPUT
+				output << currentLeaf->keys[i] << ", ";
+#endif
+				std::cout << currentLeaf->keys[i] << ", ";
+			}
+			currentLeaf = currentLeaf->nextLeaf;
+		}
+	}
+}
+
+template <typename K, typename V>
+void tree<K, V>::snapshot() {
+	if (this->rootNode != nullptr) {
+		this->rootNode->snapshot(0);
+	}
 }
 
 template <typename K, typename V>
 bool tree<K, V>::update(const K key, const V value) {
-	if (!this->exists(key)) {
-		return false;
+	if (this->rootNode != nullptr) {
+		if (this->exists(key)) {
+			return this->rootNode->update(key, value);
+		}
 	}
 
-    return this->rootNode->update(key, value);
+	return false;
 }
 
 template <typename K, typename V>
 bool tree<K, V>::remove(const K key) {
-	if (!this->exists(key)) {
-		return false;
+	if (this->rootNode != nullptr) {
+		if (!this->exists(key)) {
+			return false;
+		}
+
+		// Decrement our size
+		size--;
+
+		// Return the result of the removal
+		bool result = this->rootNode->remove(key);
+
+		// Check to see if the root is empty
+		if (this->rootNode->numberOfKeys == 0) {
+			this->rootNode = nullptr;
+		}
+
+		return result;
 	}
 
-	// Decrement our size
-	size--;
-
-	// Return the result of the removal
-    return this->rootNode->remove(key);
+	return false;
 }
 
 #endif //PROJECT_2_TREE_HPP

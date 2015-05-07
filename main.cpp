@@ -8,6 +8,8 @@
 
 #include "studentRecord.hpp"
 
+#define DEBUG 0
+
 std::string getNext(std::ifstream& file) {
 	std::string buffer;
 
@@ -16,13 +18,19 @@ std::string getNext(std::ifstream& file) {
 
 		// See if it's a command
 		if (buffer.find("*") != std::string::npos) {
+#if DEBUG
+			std::cout << buffer.substr(1) << std::endl;
+#endif
 			return buffer.substr(1);
 		} else {
 			// Drop it to lowercase since it's not a command
 			for (auto& character : buffer) {
-				character = tolower(character);
+				character = static_cast<char>(tolower(character));
 			}
 
+#if DEBUG
+			std::cout << buffer << std::endl;
+#endif
 			return buffer;
 		}
 	}
@@ -57,6 +65,11 @@ int main() {
 		// Check to see if it's a command
 		if (records.generateCommand(buffer) != NONE) {
 			command = records.generateCommand(buffer);
+			// See if it's a command that doesn't require an input
+			if (command == SNAPSHOT || command == LIST) {
+				records.handleCommand(command, buffer, updateValue);
+				command = NONE;
+			}
 		} else {
 			// Grab the next piece of data if it's an update
 			if (command == UPDATE) {

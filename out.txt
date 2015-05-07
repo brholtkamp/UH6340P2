@@ -1,7 +1,72 @@
+
+***** SNAPSHOT *****
+Number of elements: 99
+Number of blocks used: 25
+Depth of tree: 3
+Node Keys: 
+
+lefevre,yves     <-> lefevre,yves    
+	brown,virginia   <-> jones,paul      
+		adams,james      <-> brown,jean      
+		brown,virginia   <-> clement,marie   
+		collins,albert   <-> duval,pascale   
+		duval,yvette     <-> fournier,jean-luc
+		fournier,nadia   <-> jackson,julian  
+		jones,paul       <-> lee,theodore    
+	miller,brian     <-> verbois,brigitte
+		lefevre,yves     <-> mathieu,virginie
+		miller,brian     <-> muller,bertrand 
+		muller,florence  <-> oudinot,sabine  
+		petit,daniel     <-> picard,mireille 
+		robert,mireille  <-> taylor,linda    
+		taylor,virginia  <-> turner,james    
+		verbois,brigitte <-> williams,jessica
+
+***** SNAPSHOT *****
 Unable to search: zeeman,jan: does not exist in tree
 Unable to delete: mitchell,eddy: does not exist in tree
 Unable to insert: duval,pascale: already exists in tree
 Unable to insert: rousseau,francis: already exists in tree
+
+***** SNAPSHOT *****
+Number of elements: 195
+Number of blocks used: 50
+Depth of tree: 3
+Node Keys: 
+
+dupont,louis     <-> petit,daniel    
+	baudoux,odile    <-> collins,albert  
+		adams,james      <-> baudoux,fanny   
+		baudoux,odile    <-> brown,samuel    
+		brown,virginia   <-> carter,albert   
+		carter,barbara   <-> charbonnier,louise
+		chevalier,antoinette <-> clement,marie   
+		collins,albert   <-> dumont,victor   
+	duval,yvette     <-> laurent,ludovine
+		dupont,louis     <-> duval,pascale   
+		duval,yvette     <-> evans,brian     
+		evans,louise     <-> fournier,luc    
+		fournier,nadia   <-> harris,bernard  
+		harris,charlotte <-> jackson,virginia
+		jones,paul       <-> langlais,hubert 
+		laurent,ludovine <-> lefevre,marcel  
+	martin,steven    <-> nicolas,ginette 
+		lefevre,yves     <-> martin,muriel   
+		martin,steven    <-> michaud,jean-marie
+		miller,brian     <-> monfort,suzanne 
+		moore,allison    <-> muller,bertrand 
+		muller,florence  <-> nicolas,delphine
+		nicolas,ginette  <-> perrin,caroline 
+	robert,mireille  <-> white,pamela    
+		petit,daniel     <-> picard,gustave  
+		robert,mireille  <-> robinson,christopher
+		robinson,emily   <-> roussel,antoinette
+		roux,sylvie      <-> taylor,scott    
+		taylor,virginia  <-> turner,james    
+		verbois,brigitte <-> white,michelle  
+		white,pamela     <-> wilson,henry    
+
+***** SNAPSHOT *****
 Unable to insert: jackson,janet jason: already exists in tree
 Unable to insert: hill,vivian: already exists in tree
 Unable to insert: allen,patrick: already exists in tree
@@ -361,7 +426,7 @@ Unable to update: poisson,evariste: does not exist in tree
 
 ***** SNAPSHOT *****
 Number of elements: 2641
-Number of blocks used: 661
+Number of blocks used: 662
 Depth of tree: 4
 Node Keys: 
 
