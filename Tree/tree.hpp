@@ -38,7 +38,7 @@ public:
     bool remove(const K key);
 
     inline unsigned int getSize() { return size; }
-    inline unsigned int getDepth() { return this->rootNode->getDepth(0); }
+    inline unsigned int getDepth() { return this->rootNode != nullptr ? this->rootNode->getDepth(0) : 0; }
 
     ~tree() {
 #if FILE_OUTPUT
