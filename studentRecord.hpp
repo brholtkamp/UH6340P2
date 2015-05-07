@@ -116,7 +116,7 @@ enum commandType {
 
 class studentRecord {
 public:
-    studentRecord() : tree(), blocks(), currentBlock(nullptr), currentStudent(0), currentCommand(SNAPSHOT) { }
+    studentRecord() : blocks(), currentBlock(nullptr), currentStudent(0), currentCommand(SNAPSHOT), studentTree() { }
 
     commandType generateCommand(const std::string input);
     bool handleCommand(const commandType command, const std::string key, const std::string value);
@@ -138,7 +138,7 @@ private:
 
     commandType currentCommand;
 
-    tree<std::string, std::pair<std::shared_ptr<block>, unsigned int>> tree;
+    tree<std::string, std::pair<std::shared_ptr<block>, unsigned int>> studentTree;
 };
 
 commandType studentRecord::generateCommand(std::string input) {
@@ -196,7 +196,7 @@ bool studentRecord::insert(const std::string key) {
     }
 
     // See if it already exists within the tree
-    if (!tree.exists(key)) {
+    if (!studentTree.exists(key)) {
         // Create a pair to use for inserting
         auto pair = std::pair<std::shared_ptr<block>, unsigned int>(this->currentBlock, this->currentStudent);
         pair.first->setStudentName(this->currentStudent, key);
@@ -211,19 +211,18 @@ bool studentRecord::insert(const std::string key) {
             this->currentStudent++;
         }
 
-        return this->tree.insert(key, pair);
-    } else {
-#if FILE_OUTPUT
-        outputFile << "Unable to insert: " << key << ": already exists in tree" << std::endl;
-#endif
-        std::cerr << "Unable to insert: " << key << ": already exists in tree" << std::endl;
-        return false;
+        return this->studentTree.insert(key, pair);
     }
+#if FILE_OUTPUT
+    outputFile << "Unable to insert: " << key << ": already exists in tree" << std::endl;
+#endif
+    std::cerr << "Unable to insert: " << key << ": already exists in tree" << std::endl;
+    return false;
 }
 
 bool studentRecord::update(const std::string key, const std::string value) {
-    if (this->tree.exists(key)) {
-        auto block = this->tree.search(key);
+    if (this->studentTree.exists(key)) {
+        auto block = this->studentTree.search(key);
 
         // Check to see if we found it in the tree
         if (block != nullptr) {
@@ -232,20 +231,19 @@ bool studentRecord::update(const std::string key, const std::string value) {
             block->first->setStudentInformation(block->second, value);
 
             // Update our tree with this information
-            return this->tree.update(key, *block);
+            return this->studentTree.update(key, *block);
         }
-    } else {
-#if FILE_OUTPUT
-        outputFile << "Unable to update: " << key << ": does not exist in tree" << std::endl;
-#endif
-        std::cerr << "Unable to update: " << key << ": does not exist in tree" << std::endl;
-        return false;
     }
+#if FILE_OUTPUT
+    outputFile << "Unable to update: " << key << ": does not exist in tree" << std::endl;
+#endif
+    std::cerr << "Unable to update: " << key << ": does not exist in tree" << std::endl;
+    return false;
 }
 
 bool studentRecord::search(const std::string key) {
-    if (this->tree.exists(key)) {
-        auto block = this->tree.search(key);
+    if (this->studentTree.exists(key)) {
+        auto block = this->studentTree.search(key);
 
         // Check to see if we found it in the tree
         if (block != nullptr) {
@@ -253,18 +251,17 @@ bool studentRecord::search(const std::string key) {
             std::cout << block->first->getStudentInformation(block->second) << std::endl;
             return true;
         }
-    } else {
-#if FILE_OUTPUT
-        outputFile << "Unable to search: " << key << ": does not exist in tree" << std::endl;
-#endif
-        std::cerr << "Unable to search: " << key << ": does not exist in tree" << std::endl;
-        return false;
     }
+#if FILE_OUTPUT
+    outputFile << "Unable to search: " << key << ": does not exist in tree" << std::endl;
+#endif
+    std::cerr << "Unable to search: " << key << ": does not exist in tree" << std::endl;
+    return false;
 }
 
 bool studentRecord::remove(const std::string key) {
-    if (this->tree.exists(key)) {
-        auto block = this->tree.search(key);
+    if (this->studentTree.exists(key)) {
+        auto block = this->studentTree.search(key);
 
         // Check to see if it exists within the tree
         if (block != nullptr) {
@@ -273,7 +270,7 @@ bool studentRecord::remove(const std::string key) {
             block->first->clearStudentInformation(block->second);
 
             // Remove the key from the tree
-            this->tree.remove(key);
+            this->studentTree.remove(key);
 
             // Check to see if we need to remove a block
             if (block->first->blockEmpty()) {
@@ -285,21 +282,20 @@ bool studentRecord::remove(const std::string key) {
 
             return true;
         }
-    } else {
-#if FILE_OUTPUT
-        outputFile << "Unable to delete: " << key << ": does not exist in tree" << std::endl;
-#endif
-        std::cerr << "Unable to delete: " << key << ": does not exist in tree" << std::endl;
-        return false;
     }
+#if FILE_OUTPUT
+    outputFile << "Unable to delete: " << key << ": does not exist in tree" << std::endl;
+#endif
+    std::cerr << "Unable to delete: " << key << ": does not exist in tree" << std::endl;
+    return false;
 }
 
 void studentRecord::list() {
 #if FILE_OUTPUT
-    outputFile << "***** LIST *****" << std::endl;
+    outputFile << "***** LIST *****" << std::endl << std::endl;
 #endif
-    std::cout << "***** LIST *****" << std::endl;
-    this->tree.list();
+    std::cout << "***** LIST *****" << std::endl << std::endl;
+    this->studentTree.list();
 #if FILE_OUTPUT
     outputFile << "***** LIST *****" << std::endl;
 #endif
@@ -312,19 +308,19 @@ void studentRecord::snapshot() {
         numberOfBlocks++;
     }
 #if FILE_OUTPUT
-    outputFile << std::endl << "***** SNAPSHOT *****" << std::endl;
-    outputFile << "Number of elements: " << this->tree.getSize() << std::endl;
+    outputFile << std::endl << "***** SNAPSHOT *****" << std::endl << std::endl;
+    outputFile << "Number of elements: " << this->studentTree.getSize() << std::endl;
     outputFile << "Number of blocks used: " << numberOfBlocks << std::endl;
-    outputFile << "Depth of tree: " << this->tree.getDepth() << std::endl;
+    outputFile << "Depth of tree: " << this->studentTree.getDepth() << std::endl;
     outputFile << "Node Keys: " << std::endl << std::endl;
 #endif
-    std::cout << std::endl << "***** SNAPSHOT *****" << std::endl;
-    std::cout << "Number of elements: " << this->tree.getSize() << std::endl;
+    std::cout << std::endl << "***** SNAPSHOT *****" << std::endl << std::endl;
+    std::cout << "Number of elements: " << this->studentTree.getSize() << std::endl;
     std::cout << "Number of blocks used: " << numberOfBlocks << std::endl;
-    std::cout << "Depth of tree: " << this->tree.getDepth() << std::endl;
+    std::cout << "Depth of tree: " << this->studentTree.getDepth() << std::endl;
     std::cout << "Node Keys: " << std::endl << std::endl;
 
-    this->tree.snapshot();
+    this->studentTree.snapshot();
 
 #if FILE_OUTPUT
     outputFile << std::endl << "***** SNAPSHOT *****" << std::endl;

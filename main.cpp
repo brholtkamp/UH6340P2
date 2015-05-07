@@ -38,12 +38,16 @@ std::string getNext(std::ifstream& file) {
     return "";
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     studentRecord records;
+	std::string filename;
 
-    std::string filename;
-    std::cout << "Please type in the filename for the input file: ";
-    std::cin >> filename;
+	if (argc == 1) {
+		std::cerr << "Error: No file found.  Usage: " << argv[0] << " test.txt" << std::endl;
+		return -1;
+	} else {
+		filename = argv[1];
+	}
 
     commandType command = NONE;
     std::string buffer = "";

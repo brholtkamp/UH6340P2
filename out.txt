@@ -1,5 +1,6 @@
 
 ***** SNAPSHOT *****
+
 Number of elements: 99
 Number of blocks used: 25
 Depth of tree: 3
@@ -29,6 +30,7 @@ Unable to insert: duval,pascale: already exists in tree
 Unable to insert: rousseau,francis: already exists in tree
 
 ***** SNAPSHOT *****
+
 Number of elements: 195
 Number of blocks used: 50
 Depth of tree: 3
@@ -425,6 +427,7 @@ Unable to insert: kergezec,odile: already exists in tree
 Unable to update: poisson,evariste: does not exist in tree
 
 ***** SNAPSHOT *****
+
 Number of elements: 2641
 Number of blocks used: 662
 Depth of tree: 4
