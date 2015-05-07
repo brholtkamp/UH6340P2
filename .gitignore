@@ -1,4 +1,9 @@
+#Custom
 .idea/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.txt
 
 # Created by https://www.gitignore.io
 
@@ -90,7 +95,6 @@ Temporary Items
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
-
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
