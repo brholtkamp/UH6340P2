@@ -180,8 +180,13 @@ bool internalNode<K, V>::remove(const K key) {
             auto currentLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index]);
             auto previousLeaf = currentLeaf->previousLeaf;
             auto nextLeaf = currentLeaf->nextLeaf;
-            previousLeaf->nextLeaf = nextLeaf;
-            nextLeaf->previousLeaf = previousLeaf;
+            if (previousLeaf != nullptr) {
+                previousLeaf->nextLeaf = nextLeaf;
+            }
+
+            if (nextLeaf != nullptr) {
+                nextLeaf->previousLeaf = previousLeaf;
+            }
         }
 
         // Iterate through and replace the previous values

@@ -13,6 +13,7 @@
 
 #include "Tree/tree.hpp"
 
+const unsigned int DATA_SIZE = 1024;
 const unsigned int BLOCK_SIZE = 4;
 const unsigned int NAME_SIZE = 32;
 const unsigned int INFORMATION_SIZE = 224;
@@ -92,8 +93,8 @@ public:
 
     inline bool blockEmpty() {
         bool result = true;
-        for (unsigned int i = 0; i < BLOCK_SIZE; i++) {
-            if (studentNameExists(i) || studentInformationExists(i)) {
+        for (unsigned int i = 0; i < DATA_SIZE; i++) {
+            if (data[i] != '\0') {
                 result = false;
             }
         }
@@ -101,7 +102,7 @@ public:
         return result;
     }
 
-    std::array<char, 1024> data;
+    std::array<char, DATA_SIZE> data;
 };
 
 enum commandType {
@@ -303,7 +304,10 @@ void studentRecord::list() {
 void studentRecord::snapshot() {
     unsigned int numberOfBlocks = blocks.size();
     if (this->currentBlock != nullptr) {
-        numberOfBlocks++;
+        auto exists = std::find(blocks.begin(), blocks.end(), this->currentBlock);
+        if (exists != blocks.end()) {
+            numberOfBlocks++;
+        }
     }
 #if FILE_OUTPUT
     outputFile << std::endl << "***** SNAPSHOT *****" << std::endl << std::endl;
