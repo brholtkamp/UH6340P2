@@ -64,7 +64,7 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
 
         // Create a new internal node for the right
         auto newInternalNode = std::make_shared<internalNode<K, V>>();
-		newInternalNode->numberOfKeys = middleIndex;
+        newInternalNode->numberOfKeys = middleIndex;
 
         // Populate the new internal node with the right keys and children
         for (unsigned int i = 0; i < middleIndex; i++) {
@@ -108,7 +108,7 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
 
         // If we don't receive nullptr, the child split and we need to update
         if (results != nullptr) {
-			unsigned int index = this->findIndex(key);
+            unsigned int index = this->findIndex(key);
 
             // Move the last child over 1 to make room
             this->children[this->numberOfKeys + 1] = this->children[this->numberOfKeys];
@@ -177,11 +177,11 @@ bool internalNode<K, V>::remove(const K key) {
     if (this->children[index]->numberOfKeys == 0 && result) {
         // Update the linked leaves structure
         if (this->children[index]->getType() == LEAF) {
-			auto currentLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index]);
-			auto previousLeaf = currentLeaf->previousLeaf;
-			auto nextLeaf = currentLeaf->nextLeaf;
-			previousLeaf->nextLeaf = nextLeaf;
-			nextLeaf->previousLeaf = previousLeaf;
+            auto currentLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index]);
+            auto previousLeaf = currentLeaf->previousLeaf;
+            auto nextLeaf = currentLeaf->nextLeaf;
+            previousLeaf->nextLeaf = nextLeaf;
+            nextLeaf->previousLeaf = previousLeaf;
         }
 
         // Iterate through and replace the previous values

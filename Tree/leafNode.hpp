@@ -36,7 +36,7 @@ public:
 
     std::array<V, DEFAULT_DEGREE> values;
     std::shared_ptr<leafNode<K, V>> nextLeaf;
-	std::shared_ptr<leafNode<K, V>> previousLeaf;
+    std::shared_ptr<leafNode<K, V>> previousLeaf;
 };
 
 template<typename K, typename V>
@@ -88,8 +88,8 @@ std::unique_ptr<split<K, V>> leafNode<K, V>::insert(const K key, const V value) 
 
         // String together the leaves
         newLeaf->nextLeaf = this->nextLeaf;
-		this->nextLeaf = newLeaf;
-		newLeaf->previousLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->shared_from_this());
+        this->nextLeaf = newLeaf;
+        newLeaf->previousLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->shared_from_this());
 
         // Create the split struct to send back the new configuration
         auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
