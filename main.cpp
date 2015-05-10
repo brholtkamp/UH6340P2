@@ -14,7 +14,7 @@ std::string getNext(std::ifstream& file) {
     std::string buffer;
 
     if (file.good()) {
-        std::getline(file, buffer);
+        std::getline(file, buffer, '\n');
 
         // See if it's a command
         if (buffer.find("*") != std::string::npos) {

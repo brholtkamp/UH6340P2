@@ -54,23 +54,23 @@ private:
 
 template<typename K, typename V>
 bool tree<K, V>::insert(const K key, const V value) {
-    // See if we have an empty tree
-    if (this->rootNode == nullptr) {
-        this->rootNode = std::make_shared<leafNode<K, V>>();
-    }
+	// See if we have an empty tree
+	if (this->rootNode == nullptr) {
+		this->rootNode = std::make_shared<leafNode<K, V>>();
+	}
 
-    // Check to make sure this is a unique key
-    if (this->exists(key)) {
-        return false;
-    }
+	// Check to make sure this is a unique key
+	if (this->exists(key)) {
+		return false;
+	}
 
-    // Insert into the tree and record the result
-    auto results = this->rootNode->insert(key, value);
+	// Insert into the tree and record the result
+	auto results = this->rootNode->insert(key, value);
 
-    // Increment our number of inserted items
-    this->size++;
+	// Increment our number of inserted items
+	this->size++;
 
-    // If we don't receive nullptr, we split and it propagated up to the root
+    // If we don't receive nullptr, we split and need to either fix the root or reinsert to the new location
     if (results != nullptr) {
         auto newRoot = std::make_shared<internalNode<K, V>>();
         newRoot->numberOfKeys = 1;
@@ -78,7 +78,7 @@ bool tree<K, V>::insert(const K key, const V value) {
         newRoot->children[0] = results->left;
         newRoot->children[1] = results->right;
         this->rootNode = newRoot;
-    }
+	}
 
     return true;
 }
@@ -124,9 +124,9 @@ void tree<K, V>::list() {
         while (currentLeaf != nullptr) {
             for (unsigned int i = 0; i < currentLeaf->numberOfKeys; i++) {
 #if FILE_OUTPUT
-                outputFile << currentLeaf->keys[i] << ", ";
+                outputFile << currentLeaf->keys[i] << std::endl;
 #endif
-                std::cout << currentLeaf->keys[i] << ", ";
+                std::cout << currentLeaf->keys[i] << std::endl;
             }
             currentLeaf = currentLeaf->nextLeaf;
         }

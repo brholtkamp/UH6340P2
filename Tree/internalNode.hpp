@@ -64,7 +64,7 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
 
         // Create a new internal node for the right
         auto newInternalNode = std::make_shared<internalNode<K, V>>();
-        newInternalNode->numberOfKeys = this->numberOfKeys - middleIndex;
+		newInternalNode->numberOfKeys = middleIndex;
 
         // Populate the new internal node with the right keys and children
         for (unsigned int i = 0; i < middleIndex; i++) {
@@ -83,19 +83,19 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
         // Update the number of keys to reflect the split
         this->numberOfKeys = middleIndex - 1;
 
+        // Setup the split results to send back
+        auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
+        splitResult->key = this->keys[middleIndex - 1];
+        splitResult->left = this->shared_from_this();
+        splitResult->right = newInternalNode;
+
         // Add in the new key
-        if (key < this->keys[this->numberOfKeys]) {
+        if (key < splitResult->key) {
             this->insert(key, value);
         }
         else {
             newInternalNode->insert(key, value);
         }
-
-        // Setup the split results to send back
-        auto splitResult = std::unique_ptr<split<K, V>>(new split<K, V>());
-        splitResult->key = this->keys[this->numberOfKeys];
-        splitResult->left = this->shared_from_this();
-        splitResult->right = newInternalNode;
 
         return splitResult;
     }
@@ -108,29 +108,21 @@ std::unique_ptr<split<K, V>> internalNode<K, V>::insert(const K key, const V val
 
         // If we don't receive nullptr, the child split and we need to update
         if (results != nullptr) {
-            // Check for the last case
-            if (index == this->numberOfKeys) {
-                this->keys[index] = results->key;
-                this->children[index] = results->left;
-                this->children[index + 1] = results->right;
-                this->numberOfKeys++;
-            }
-                // Insert this one into the internal node normally
-            else {
-                // Move the last child over 1 to make room
-                this->children[this->numberOfKeys + 1] = this->children[this->numberOfKeys];
+			unsigned int index = this->findIndex(key);
 
-                // Iterate through and move the children and keys over
-                for (unsigned int i = this->numberOfKeys; i != index; --i) {
-                    this->keys[i] = this->keys[i - 1];
-                    this->children[i] = this->children[i - 1];
-                }
+            // Move the last child over 1 to make room
+            this->children[this->numberOfKeys + 1] = this->children[this->numberOfKeys];
 
-                this->keys[index] = results->key;
-                this->children[index] = results->left;
-                this->children[index + 1] = results->right;
-                this->numberOfKeys++;
+            // Iterate through and move the children and keys over
+            for (unsigned int i = this->numberOfKeys; i != index; --i) {
+                this->keys[i] = this->keys[i - 1];
+                this->children[i] = this->children[i - 1];
             }
+
+            this->keys[index] = results->key;
+            this->children[index] = results->left;
+            this->children[index + 1] = results->right;
+            this->numberOfKeys++;
         }
 
         return nullptr;
@@ -185,9 +177,11 @@ bool internalNode<K, V>::remove(const K key) {
     if (this->children[index]->numberOfKeys == 0 && result) {
         // Update the linked leaves structure
         if (this->children[index]->getType() == LEAF) {
-            auto leftNode = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index - 1]);
-            auto rightNode = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index + 1]);
-            leftNode->nextLeaf = rightNode;
+			auto currentLeaf = std::dynamic_pointer_cast<leafNode<K, V>>(this->children[index]);
+			auto previousLeaf = currentLeaf->previousLeaf;
+			auto nextLeaf = currentLeaf->nextLeaf;
+			previousLeaf->nextLeaf = nextLeaf;
+			nextLeaf->previousLeaf = previousLeaf;
         }
 
         // Iterate through and replace the previous values
